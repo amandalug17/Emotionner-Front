@@ -45,6 +45,9 @@ const Navbar_ = (props) => {
               <NavLink href="/articles" >Articulos</NavLink>
             </NavItem>
             <NavItem>
+              <NavLink href="/stats" >Estadísticas</NavLink>
+            </NavItem>
+            <NavItem>
             <NavLink href='/' type='button' style={{fontWeight:'lighter'}, {fontSize:'16px'}} className='btn-md btn-light' onClick = {logOut}><i className="fa fa-user"></i>   Cerrar Sesión</NavLink>
             </NavItem>
             </Nav>

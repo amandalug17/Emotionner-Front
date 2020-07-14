@@ -15,6 +15,7 @@ import LoginAdminForm from "./Components/Forms/login-admin-form";
 import addArticleView from "./Components/Views/addArticle";
 import addPhraseView from './Components/Views/addPhrase';
 import RecomendationView from './Components/Views/recomendations';
+import StatsView from './Components/Views/statsView';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -39,6 +40,7 @@ const App = () => {
             <Route exact path="/admin" component={LoginAdminForm} />
             <Route exact path="/admin/createArticle" component={addArticleView} />
             <Route exact path="/admin/createPhrase" component={addPhraseView} />
+            <PrivateRoute exact path="/stats" component={StatsView} />
             <PrivateRoute exact path="/articles" component={RecomendationView} />
             <PrivateRoute exact path="/profile" component={CalendarioView} />
             <PrivateRoute exact path="/agenda" component={agendaView} />
