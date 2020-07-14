@@ -108,7 +108,7 @@ class TaskTable extends Component {
           <td>{item.start}</td>
           <td>{item.time}</td>
           <td>
-              <ModalForm buttonLabel="Editar" item={item} updateState={this.props.updateState}/>
+              <ModalForm buttonLabel= {!item.completed ? "Editar" : " "} item={item} updateState={this.props.updateState}/>
           </td>
           <td>
           <div className = "buttonArrow">
