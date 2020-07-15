@@ -1,7 +1,7 @@
 import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import Footer from '../Elements/footerInside'
-import OfTheMonth from '../Charts/ofTheMonth';
+import Footer from '../Elements/footerInside';
+import MonthEmotion from '../Charts/monthEmotion'
 import TasksPerDay from '../Charts/tasksPerDay';
 import StatsHero from '../Elements/statsHero';
 import './../../App.css'
@@ -16,11 +16,12 @@ class StatsView extends Component {
         <StatsHero/>
         <br/>
         <div className='container'>
-            <div className='row'>
+           <div className='row'>
                 <div className='col'>
-                    <OfTheMonth/>
+                   <MonthEmotion />
                 </div>
             </div>
+            <br/>
             <div className='row justify-content-center'>
                 <div className='col'>
                 < ECountChart />
