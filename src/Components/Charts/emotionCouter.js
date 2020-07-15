@@ -22,8 +22,22 @@ class ECountChart extends Component{
             /**
              * Por cada record que me responde mi llamada axios voy a guardar los datos en su array correspondiente
              */
+            var emotionL = ''
             chartData.forEach(record=>{
-                emotion.push(record.emotion)
+                if(record.emotion=== 1){
+                    emotionL = 'INCREIBLE'
+                }else if(record.emotion=== 11){
+                    emotionL = 'BIEN'
+                }else if(record.emotion=== 21){
+                    emotionL = 'TRISTE'
+                }else if(record.emotion=== 31){
+                    emotionL = 'ENOJADO'
+                }else if(record.emotion=== 41){
+                    emotionL = 'ANSIOSO'
+                }else{
+                    emotionL = 'ESTRESADO'
+                }
+                emotion.push(emotionL)
                 count.push(record.counter)
             });
             //lo guardamos todo en el estado
@@ -35,16 +49,12 @@ class ECountChart extends Component{
                             label: 'Tu contador de emociones',
                             data: count,
                             backgroundColor: [  
-                                "#3cb371",  
-                                "#0000FF",  
-                                "#9966FF",  
-                                "#4C4CFF",  
-                                "#00FFFF",  
-                                "#f990a7",  
-                                "#aad2ed",  
-                                "#FF00FF",  
-                                "Blue",  
-                                "Red"  
+                                "rgba(120, 190, 236, 0.6)",
+                                "rgba(61, 221, 69, 0.6)",
+                                "rgba(252, 217, 62, 0.6)",
+                                "rgba(243, 74, 74, 0.6)",
+                                "rgba(247, 99, 155, 0.6)", 
+                                "rgba(241, 134, 46, 0.6)"
                             ] 
                         }
                     ]
@@ -55,7 +65,7 @@ class ECountChart extends Component{
     render(){
         return(
             
-            <div class="chart-container" style={{position: "relative", height: " 60vh", width:"60vw"}}>
+            <div class="chart-container" style={{position: "relative", height: " 60vh"}}>
                 <Bar data={this.state.Data}  
                  options={{ maintainAspectRatio: false}} />    
             </div>

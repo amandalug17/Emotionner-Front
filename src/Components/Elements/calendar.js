@@ -88,6 +88,25 @@ class Calendario extends Component {
             onSelectSlot={this.handleSelect}
             dayLayoutAlgorithm={this.state.dayLayoutAlgorithm}
             defaultDate={new Date()}
+            eventPropGetter={
+              (event) => {
+                let newStyle = {
+                  backgroundColor: "#d7ade996",
+                  color: 'black',
+                  borderRadius: "0px",
+                  border: "none"
+                };
+          
+                if (event.completed){
+                  newStyle.backgroundColor = "#EFE7F3"
+                }
+          
+                return {
+                  className: "",
+                  style: newStyle
+                };
+              }
+            }
         />
       <NotificationContainer/>
         </div>
