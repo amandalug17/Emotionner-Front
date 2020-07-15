@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios'
 import AuthService from '../../Services/auth.service';
 import all from '../Forms/all';
+import 'font-awesome/css/font-awesome.min.css';
 
 class MothEmotion extends Component{
     constructor(props){
@@ -22,65 +23,84 @@ class MothEmotion extends Component{
         axios.get(`https://emotionner.herokuapp.com/users/emotionOfTheMonth/${id}`)
         .then(res=>{ //luego 
             console.log(res);//console.log del resultado
-            const emotion = res.data.ofTheMonth[0].emotion; //guardamos el array de objetos devuelto
+            let array = res.data.ofTheMonth
+            console.log(Array.isArray(array))
+            var emotion =''
+            if(array.length === 0){
+                emotion =''
+            } else{
+                emotion = array[0].emotion; //guardamos el array de objetos devuelto
+                
+            }
+            
             console.log(emotion)
             /**
              * Recibimos un ID y lo asociamos a la emocion
              */
-            
+            var icon = ''
             var emotionL = ''
             if(emotion=== 1){
                 emotionL = 'INCREIBLE'
-                
+                icon ="increible far fa-grin-stars"
             }else if(emotion=== 11){
                 emotionL = 'BIEN'
-                
+                icon ="bien far fa-smile"
             }else if(emotion=== 21){
                 emotionL = 'TRISTE'
-               
-               
+                icon = "triste far fa-sad-tear"
+                console.log(icon)
             }else if(emotion=== 31){
                 emotionL = 'ENOJADO'
-                
+                icon= "enojado far fa-angry"
             }else if(emotion=== 41){
                 emotionL = 'ANSIOSO'
-                
+                icon ="ansioso far fa-grimace"
             }else if (emotion=== 51) {
                 emotionL = 'ESTRESADO'
-               
+                icon ="estresado far fa-tired"
             }
 
-            
+            console.log(icon)
            
             //lo guardamos todo en el estado
             this.setState({
                emotionMonth : emotionL,
-               iconE: emotion
+               iconE : icon
             })
         
-           
+            console.log(icon)
         })
     }
     render(){
         return(
             <div className="card rounded">
             <div className="card-body">
-            <h5 className="card-title">Este Mes te haz sentido...</h5>
-            <h3 className={this.state.iconE ===21? "emocionT" : "emocionMes"}>{this.state.emotionMonth}</h3>
-            <div><a  className=' d-flex justify-content-center' >
-                {
-                this.state.iconE ===1 ? <i className="increible far fa-grin-stars"></i>:
-                this.state.emotionMonth ==='TRISTE'? <i className="bien far fa-smile"></i>:
-                this.state.iconE ===21 ? <i className="triste far fa-sad-tear"></i>:
-                this.state.iconE ===31 ? <i className="enojado far fa-angry"></i>:
-                this.state.iconE ===41 ? <i className="ansioso far fa-grimace"></i>:
-                <i className="estresado far fa-tired"></i>
-                }
-               
-
-                </a></div>
+            <h5 className="card-title">Este Mes te has sentido...</h5>
+            <div><a  className=' d-flex justify-content-center' style={{fontSize: '10rem'}} ><i className={this.state.iconE}></i></a></div>
             <br/>
-            <h6 className="card-subtitle mb-2 text-muted">Conoce que emoción es más predominante en tu vida, basado en tus entradas diarias.</h6>
+            <h3 className={
+                this.state.emotionMonth === 'INCREIBLE' ? "emotionI" :
+                this.state.emotionMonth === 'BIEN' ? "emotionB" :
+                this.state.emotionMonth === 'TRISTE' ? "emotionT" :
+                this.state.emotionMonth === 'ENOJADO' ? "emotionE" :
+                this.state.emotionMonth === 'ANSIOSO' ? "emotionA" :
+                this.state.emotionMonth === 'ESTRESADO' ? "emotionEs" :
+                " "
+                
+            }>{this.state.emotionMonth}</h3>
+            <br/>
+            <div className=' d-flex justify-content-center'>
+                <h6 className="card-subtitle mb-2 text-muted">{
+                this.state.emotionMonth === 'INCREIBLE' ? "¡Estás teniendo una muy buena racha este mes! Sigue así." :
+                this.state.emotionMonth === 'BIEN' ? "¡Cada día es una oportunidad para sentirse mucho mejor, sigue así!" :
+                this.state.emotionMonth === 'TRISTE' ? "¿Estás teniendo un mes difícil?. No te preocupes siempre hay luz al final del tunel" :
+                this.state.emotionMonth === 'ENOJADO' ? "Deja de lado aquellas cosas que solo te traen disgustos" :
+                this.state.emotionMonth === 'ANSIOSO' ? "Es importante aprender a manejar tu ansiedad, busca un hobbie que te guste o relajate unos minutos." :
+                this.state.emotionMonth === 'ESTRESADO' ? "Es importante controlar los niveles de estrés por tu salud. No te procupes que todo saldra bien!":
+                "¿Eres nuevo?. Ingresa una emoción para conocer tus estadisticas"
+
+            }</h6></div>
+            
            
             </div>
             </div>
@@ -90,6 +110,4 @@ class MothEmotion extends Component{
     }
 }
 export default MothEmotion
-
-
 

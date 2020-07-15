@@ -19,7 +19,7 @@ class StatsView extends Component {
         <div className='container'>
             <div className='row'>
                 <div className='col'>
-                <h1 className='d-flex justify-content-center'style={{margin: "20px", fontWeight:'lighter', letterSpacing: '5px', fontSize:'40px', fontFamily:'Montserrat'}}> Emoción del mes</h1>
+                <h1 className='d-flex justify-content-center'style={{margin: "20px", fontWeight:'lighter', letterSpacing: '5px', fontSize:'40px', fontFamily:'Montserrat'}}> Conoce tus estadisitcas</h1>
                 </div>
             </div>
             <div className='row'>
