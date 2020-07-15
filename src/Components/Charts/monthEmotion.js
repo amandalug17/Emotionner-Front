@@ -27,37 +27,38 @@ class MothEmotion extends Component{
             /**
              * Recibimos un ID y lo asociamos a la emocion
              */
-            var icon = ''
+            
             var emotionL = ''
             if(emotion=== 1){
                 emotionL = 'INCREIBLE'
-                icon ="increible far fa-grin-stars"
+                
             }else if(emotion=== 11){
                 emotionL = 'BIEN'
-                icon ="bien far fa-smile"
+                
             }else if(emotion=== 21){
                 emotionL = 'TRISTE'
-                icon = "triste far fa-sad-tear"
-                console.log(icon)
+               
+               
             }else if(emotion=== 31){
                 emotionL = 'ENOJADO'
-                icon= "enojado far fa-angry"
+                
             }else if(emotion=== 41){
                 emotionL = 'ANSIOSO'
-                icon ="ansioso far fa-grimace"
+                
             }else if (emotion=== 51) {
                 emotionL = 'ESTRESADO'
-                icon ="estresado far fa-tired"
+               
             }
 
-            console.log(icon)
+            
            
             //lo guardamos todo en el estado
             this.setState({
-               emotionMonth : emotionL
+               emotionMonth : emotionL,
+               iconE: emotion
             })
         
-            console.log(icon)
+           
         })
     }
     render(){
@@ -65,8 +66,19 @@ class MothEmotion extends Component{
             <div className="card rounded">
             <div className="card-body">
             <h5 className="card-title">Este Mes te haz sentido...</h5>
-            <h3>{this.state.emotionMonth}</h3>
-            <div><a  className=' d-flex justify-content-center' ><i className={this.state.iconE }></i></a></div>
+        <h3>{this.state.emotionMonth}</h3>
+            <div><a  className=' d-flex justify-content-center' >
+                {
+                this.state.iconE ===1 ? <i className="increible far fa-grin-stars"></i>:
+                this.state.iconE ===11 ? <i className="bien far fa-smile"></i>:
+                this.state.iconE ===21 ? <i className="triste far fa-sad-tear"></i>:
+                this.state.iconE ===31 ? <i className="enojado far fa-angry"></i>:
+                this.state.iconE ===41 ? <i className="ansioso far fa-grimace"></i>:
+                <i className="estresado far fa-tired"></i>
+                }
+               
+
+                </a></div>
             <br/>
             <h6 className="card-subtitle mb-2 text-muted">Conoce que emoción es más predominante en tu vida, basado en tus entradas diarias.</h6>
            
