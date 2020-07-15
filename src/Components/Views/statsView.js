@@ -15,20 +15,17 @@ class StatsView extends Component {
         <>
         <StatsHero/>
         <Container>
-            <Row> 
-                <Col>
+            <div className='row justify-content-center'> 
+                <div className= 'col' >
                     <h1 className='d-flex justify-content-center'style={{margin: "20px", fontWeight:'lighter', letterSpacing: '5px', fontSize:'40px', fontFamily:'Montserrat'}}> Emoción del mes</h1>
-                </Col>
-            </Row>
-            <Row>
-                <OfTheMonth/>
-            </Row>
-            <Row>
-                <EmotionCounter/>
-            </Row>
-            <Row>
-                <TasksPerDay/>
-            </Row>
+                </div>
+            </div>
+            <div className='row justify-content-center'> 
+                <div className= 'col' style={{backgroundColor: '#ffff'}}>
+                    <TasksPerDay/>
+                </div>
+            </div>
+           
         </Container>
         <Footer/>
         </>

@@ -36,20 +36,15 @@ class TasksPerDay extends Component {
                     labels: days,
                     datasets: [
                         {
-                            label: 'Tus tareas completadas',
+                            label: 'Tareas completadas',
                             data: count,
-                            backgroundColor: [  
-                                "#3cb371",  
-                                "#0000FF",  
-                                "#9966FF",  
-                                "#4C4CFF",  
-                                "#00FFFF",  
-                                "#f990a7",  
-                                "#aad2ed",  
-                                "#FF00FF",  
-                                "Blue",  
-                                "Red"  
-                            ] 
+                            backgroundColor: "#A288E3",
+                            fill: false,
+                            borderColor: "#A288E3",
+                            lineTension: 0.5,
+                            pointRadius: 5,
+                            //responsive: true
+
                         }
                     ]
                 }
@@ -60,6 +55,10 @@ class TasksPerDay extends Component {
     render() {
         return (
             <>
+            <div class="chart-container" style={{position: "relative", height: " 60vh", width:"60vw"}}>
+                <Line data={this.state.Data}  
+                 options={{ maintainAspectRatio: false}} />    
+            </div>
            
             </>
         )
