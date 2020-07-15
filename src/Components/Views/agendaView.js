@@ -8,6 +8,7 @@ import Footer from '../Elements/footerInside'
 import TasksHero from '../Elements/taskHero';
 import Taskquote from '../Elements/taskQuote';
 import './../../App.css'
+import Navbar_I from "../Elements/navbar";
 /**
  * Agenda View where all agenda components are called
  */
@@ -78,6 +79,7 @@ class agendaView extends Component {
 
     return (
       <>
+      <Navbar_I/>
       <TasksHero/>
       
       <Container className="container" style={{marginBottom: '20px'}}>

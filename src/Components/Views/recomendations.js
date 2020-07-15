@@ -4,6 +4,7 @@ import Footer from '../Elements/footerInside'
 import RecoHero from '../Elements/recomendadoHero';
 import ArticleView from '../Forms/articleF';
 import PhraseView from '../Forms/PhraseF';
+import Navbar_I from "../Elements/navbar";
 import './../../App.css'
 
 
@@ -13,6 +14,7 @@ class RecomendationView extends Component {
 
     return (
       <>
+      <Navbar_I/>
       <RecoHero/>
       <Container >
       <Row> 

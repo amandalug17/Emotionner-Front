@@ -7,6 +7,7 @@ import './../../App.css'
 import Footer from "../Elements/footerInside";
 import AuthService from "../../Services/auth.service";
 import { FormGroup } from "reactstrap";
+import Navbar_O from "../Elements/navbarOutside";
 /**
  * Requeried method verifies that all the fields are filled in
  * @param {*} value 
@@ -110,6 +111,7 @@ const Register = (props) => {
         (response) => {
           alert(response.data.message);
           setSuccessful(true);
+          props.history.push("/login");
         },
         (error) => {
           const resMessage =
@@ -128,6 +130,7 @@ const Register = (props) => {
 
   return (
     <>
+    <Navbar_O/>
     <div className="container">
       <div className="cont-reg">
         <div className="img-reg">

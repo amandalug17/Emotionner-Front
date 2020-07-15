@@ -8,7 +8,6 @@ import CalendarioView from "./Components/Views/calendarView";
 import Register from "./Components/Forms/registration";
 import agendaView from "./Components/Views/agendaView";
 import emotionsView from "./Components/Views/emotionsView";
-import Navbar_ from "./Components/Elements/navbar";
 import  PrivateRoute from "./Services/privateRoute";
 import HomePage from "./Components/Views/homePage";
 import LoginAdminForm from "./Components/Forms/login-admin-form";
@@ -33,7 +32,6 @@ const App = () => {
 
   return (
     <>
-    <Navbar_/>
     <Router>
             <Switch>
             <Route exact path={"/login"} component={Login} />

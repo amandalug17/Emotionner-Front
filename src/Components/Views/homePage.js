@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Footer from '../Elements/footerInside';
+import Navbar_O from "../Elements/navbarOutside";
+import Navbar_I from "../Elements/navbar";
+import AuthService from './../../Services/auth.service'
 
 
 const HomePage = () => {
 
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+  
+
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
+
     return (
         <>
+        {currentUser ? 
+        (<Navbar_I/>):
+        <Navbar_O/>}
         <div className="banner">
         <div className="banner__overlay">
           <div className="banner__container">

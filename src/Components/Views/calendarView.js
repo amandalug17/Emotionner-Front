@@ -2,6 +2,7 @@ import React from 'react';
 import Calendario from '../Elements/calendar';
 import Footer from '../Elements/footerInside'
 import './../../App.css'
+import Navbar_I from "../Elements/navbar";
 
 
 
@@ -10,6 +11,7 @@ const CalendarView = () =>{
     
         return(
             <>
+            <Navbar_I/>
             <div className='container'>
                 <div className ='row'>
                     <div className='col-1'>
