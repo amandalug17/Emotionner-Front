@@ -44,6 +44,24 @@ const login = (email, password) => {
       return response.data;
     });
 };
+const loginA = (email, password) => {
+  return axios
+    .post(API_URL + "users/signin", {
+      email,
+      password,
+    })
+    .then((response) => {
+      if (response.data.accessToken && response.data.roles[0] === "ROLE_ADMIN") {
+        localStorage.setItem("admin", JSON.stringify(response.data));
+      }
+
+      return response.data;
+    });
+
+};
+const logoutA = () => {
+  localStorage.removeItem("admin");
+};
 /**
  * Logout method
  */
@@ -64,11 +82,25 @@ const isAuth= (user)=>{
       return false
     }
 }
+const getCurrentAdmin = () => {
+  return JSON.parse(localStorage.getItem("admin"));
+};
+const isAdmin= (user)=>{
+  if(user){
+    return true
+  } else {
+    return false
+  }
+}
 
 export default {
   register,
   login,
   logout,
   getCurrentUser,
-  isAuth
+  isAuth, 
+  loginA,
+  logoutA,
+  isAdmin,
+  getCurrentAdmin
 };

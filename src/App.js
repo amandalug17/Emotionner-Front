@@ -18,6 +18,7 @@ import adminDashboard from "./Components/Views/adminDash";
 import StatsView from './Components/Views/statsView';
 import AllArticle from './Components/Views/AdminAllArticles';
 import AllPhrases from './Components/Views/AdminAllPhrases';
+import PrivateRouteA from "./Services/privateRouteA";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -39,16 +40,16 @@ const App = () => {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/singup" component={Register} />
             <Route exact path="/admin" component={LoginAdminForm} />
-            <Route exact path="/admin/createArticle" component={addArticleView} />
-            <Route exact path="/admin/createPhrase" component={addPhraseView} />
-            <Route exact path="/admin/dashboard" component={adminDashboard} />
-            <PrivateRoute exact path="/stats" component={StatsView} />
-            <Route exact path="/admin/AllArticles" component={AllArticle} />
-            <Route exact path="/admin/AllPhrases" component={AllPhrases} />
+            <PrivateRouteA exact path="/admin/createArticle" component={addArticleView} />
+            <PrivateRouteA exact path="/admin/createPhrase" component={addPhraseView} />
+            <PrivateRouteA exact path="/admin/dashboard" component={adminDashboard} />
+            <PrivateRouteA exact path="/admin/AllArticles" component={AllArticle} />
+            <PrivateRouteA exact path="/admin/AllPhrases" component={AllPhrases} />
             <PrivateRoute exact path="/articles" component={RecomendationView} />
             <PrivateRoute exact path="/profile" component={CalendarioView} />
             <PrivateRoute exact path="/agenda" component={agendaView} />
             <PrivateRoute exact path="/mood" component={emotionsView} />
+            <PrivateRoute exact path="/stats" component={StatsView} />
           </Switch>
     </Router>
     </>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import {Bar, Doughnut} from 'react-chartjs-2';
+import {Doughnut} from 'react-chartjs-2';
 import AuthService from '../../Services/auth.service';
 
 class ECountChart extends Component{

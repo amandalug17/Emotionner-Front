@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import './../../App.css'
 import Footer from "../Elements/footerOutside";
+import AuthService  from "./../../Services/auth.service";
+
 
 let admins=[
     {username: 'admin', campPassword:'admin'},
@@ -36,17 +38,25 @@ class LoginAdminForm extends Component{
         else if (this.state.campPassword==="") {
               alert("La contraseña ingresada no es valida")
         } else {
+            AuthService.loginA( this.state.username, this.state.campPassword).then(
+                () => {
+                   
+                    console.log("Los datos ingresados son validos")
+                    console.log('admin')
+                    this.redirect();
+                },
+                (error) => {
+                  const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+                  alert(resMessage);
+                }
+              );
             console.log(this.state)
-            var user =admins.find(x=>x.username === this.state.username && x.campPassword===this.state.campPassword)
-            console.log(user)
-            if(!user){
-                console.log("Los datos ingresados no son validos")
-                alert("Los datos ingresados no son validos")
-                
-            }else{
-                console.log("Los datos ingresados son validos")
-                this.redirect()
-            }
+            
         }
     }
     redirect(){
@@ -68,8 +78,8 @@ class LoginAdminForm extends Component{
                            <h5 className='card-title text-center text-uppercase'>Bienvenido Administrador</h5>
                            <Form className='form-singin'>
                                 <FormGroup>
-                                    <Label className="art-label">USERNAME</Label>
-                                    <Input className='form-control' type="text" value={this.state.username} onChange={(value)=> this.setState({username:value.target.value})}  placeholder="Introduzca su usuario "></Input>
+                                    <Label className="art-label">Email</Label>
+                                    <Input className='form-control' type="email" value={this.state.username} onChange={(value)=> this.setState({username:value.target.value})}  placeholder="Introduzca su usuario "></Input>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Contraseña</Label>

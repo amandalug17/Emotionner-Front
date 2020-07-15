@@ -1,5 +1,6 @@
 import React from 'react';
 import './../../App.css'
+import AuthService  from "./../../Services/auth.service";
 
 const Sidebar_ = (props) => {
     const $button  = document.querySelector('#sidebar-toggle');
@@ -10,7 +11,11 @@ const Sidebar_ = (props) => {
             e.preventDefault();
             $wrapper.classList.toggle('toggled');
             });
+
     }
+    const logOut = () => {
+      AuthService.logoutA();
+    };
 
   return (
     <div id="wrapper">
@@ -30,7 +35,7 @@ const Sidebar_ = (props) => {
         <a  href="/admin/createPhrase" ><i className="fas fa-pen-nib" style={{marginLeft:'7px',fontSize:'25px', marginRight:'20px'}}></i>Frases</a>
       </li>
       <li>
-        <a href="/"><i className="fa fa-user" style={{marginLeft:'7px', fontSize:'25px', marginRight:'20px'}}></i>Cerrar Sesión</a>
+        <a href="/" onClick = {logOut}><i className="fa fa-user" style={{marginLeft:'7px', fontSize:'25px', marginRight:'20px'}} ></i>Cerrar Sesión</a>
       </li>
     </ul>
   </aside>
