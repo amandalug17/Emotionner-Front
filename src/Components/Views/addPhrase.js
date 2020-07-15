@@ -7,6 +7,7 @@ class addPhraseView extends Component{
     render(){
         return(
             <>
+            <div className='blanco' style={{height:'100%'}}>
             <Sidebar/>
             <div className='container'>
                 <div className='row justify-content-end'>
@@ -14,6 +15,7 @@ class addPhraseView extends Component{
                     <CreatePhrase/>
                     </div>
                 </div>
+            </div>
             </div>
         </>
         )

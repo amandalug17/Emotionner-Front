@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../Elements/footerInside';
-import './../../App.css'
+
 
 const HomePage = () => {
 
@@ -36,7 +36,7 @@ const HomePage = () => {
             </div>
             
             <div className="col-md-4 col-sm-4 coffee">
-              <img src="https://cdn4.iconfinder.com/data/icons/startup-90/64/34-512.png" style={{height:'210px', width:'200px'}}className="coffee__img"/>
+              <img src="https://cdn4.iconfinder.com/data/icons/startup-90/64/34-512.png" style={{maxHeight:'210px', maxWidth:'200px'}}className="coffee__img"/>
               <h2 className="coffee__name">Estamos contigo</h2>
               <p className="pHomepage coffee__descr">
                   Emotionner no solo te permite llevar un diario de tus tareas y emociones; buscamos aconsejarte y guiarte a través de los días buenos y no tan buenos.

@@ -249,7 +249,7 @@ Crear articulos y frases new:
 
 .card-signin .card-body {
   padding: 2rem;
-	background:rgba(40,57,101,.5);
+	background:rgba(40, 57, 101, 0.37);
 }
 
 .form-signin {
@@ -257,8 +257,7 @@ Crear articulos y frases new:
 }
 
 .form-control{
-  opacity: 60%;
-  text-align: center;
+  background-color: #ffffff46;
 }
 
 .form-icon{
@@ -351,7 +350,7 @@ a:focus {
   margin-left: -250px;
   overflow-y: auto;
   overflow-x: hidden;
-  background: rgba(238, 238, 238, 0.349);
+  background: rgba(99, 182, 238, 0.336);
   transition: all 0.5s ease;
 }
 

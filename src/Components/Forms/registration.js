@@ -5,7 +5,6 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import './../../App.css'
 import Footer from "../Elements/footerInside";
-
 import AuthService from "../../Services/auth.service";
 import { FormGroup } from "reactstrap";
 /**

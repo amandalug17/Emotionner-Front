@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import Sidebar from '../Elements/sidebar';
-import CreateArticle from '../Forms/articulo-form';
+import CreatePhrase from '../Forms/createPhrase';
 import './../../App.css'
 
-class addArticleView extends Component{
+class adminDashboard extends Component{
     render(){
         return(
             <>
+            <div className='blanco' style={{height:'100%'}}>
             <Sidebar/>
-            <div className='blanco'>
             <div className='container'>
                 <div className='row justify-content-end'>
                     <div className='col col-md-10'>
-                    <CreateArticle/>
+                    <h1>DASHBOARD</h1>
                     </div>
                 </div>
             </div>
@@ -23,4 +23,4 @@ class addArticleView extends Component{
  
 
 
-} export default addArticleView
+} export default adminDashboard

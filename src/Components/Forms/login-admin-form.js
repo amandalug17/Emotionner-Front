@@ -1,9 +1,9 @@
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import React, {Component} from 'react';
-import { withRouter, Redirect, Switch } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import './../../App.css'
+import Footer from "../Elements/footerOutside";
 
 let admins=[
     {username: 'admin', campPassword:'admin'},
@@ -50,13 +50,14 @@ class LoginAdminForm extends Component{
         }
     }
     redirect(){
-            var link = window.location.href+'/createArticle';
+            var link = window.location.href+'/dashboard';
             console.log (link);
             return window.location.replace(link)
     }
     render(){
         return(
-            <div className="container">
+            <>
+            <div className="blanco">
             <div className= 'row '>
                 <div className='col-sm-9 col-md-7 col-lg-5 mx-auto'>
                     <div className='card card-signin my-5'>
@@ -71,8 +72,8 @@ class LoginAdminForm extends Component{
                                     <Input className='form-control' type="text" value={this.state.username} onChange={(value)=> this.setState({username:value.target.value})}  placeholder="Introduzca su usuario "></Input>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label className="art-label">CONTRASEÑA</Label>
-                                    <Input className='form-control' type="text"  value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})} placeholder="Introduzca su contraseña" required></Input>
+                                    <Label>Contraseña</Label>
+                                    <Input className='form-control' type="password"  value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})} placeholder="Introduzca su contraseña" required></Input>
                                 </FormGroup>
                                 <div style={{margin: '20px'}}>
                                 <button type='button' className="btn btn-lg btn-block text-uppercase btn-light"  onClick={()=>this.singIn()}>Iniciar Sesión</button>
@@ -83,7 +84,8 @@ class LoginAdminForm extends Component{
                 </div>
             </div>
         </div>
-
+        <Footer/>
+        </>
             )
         
     }

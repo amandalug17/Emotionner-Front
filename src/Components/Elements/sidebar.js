@@ -21,7 +21,7 @@ const Sidebar_ = (props) => {
     </div>
     <ul className="sidebar-nav">
       <li>
-        <a  href="#" ><i className="fa fa-home" style={{marginLeft:'7px',fontSize:'25px', marginRight:'20px'}}></i>Home</a>
+        <a  href="/admin/dashboard" ><i className="fa fa-home" style={{marginLeft:'7px',fontSize:'25px', marginRight:'20px'}}></i>Home</a>
       </li>
       <li>
         <a  href="/admin/createArticle" ><i className="fa fa-edit" style={{marginLeft:'7px',fontSize:'25px', marginRight:'20px'}}></i>Artículo</a>

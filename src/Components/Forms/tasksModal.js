@@ -9,6 +9,7 @@ class ModalForm extends Component {
     super(props)
     this.state = {
       modal: false
+     
     }
   }
   
@@ -20,6 +21,7 @@ class ModalForm extends Component {
   }
 
   render() {
+   
       const closeBtn = <button className="close d-flex justify-content-end" onClick={this.toggle}>&times;</button>
 
       const label = this.props.buttonLabel
@@ -28,13 +30,20 @@ class ModalForm extends Component {
       let title = ''
 
 
-      if(label === 'Editar'){
+      if(label === 'Editar' ){
         button = <>
                         <div className = 'buttonArrow'>
                             <a className="link" style={{textTransform: 'uppercase'}} onClick={this.toggle } title='Editar'>{label}</a>
                         </div>
                         </>
-      } else {
+      } else if (label === " " ){
+        {console.log('entra')}
+        button = <>
+        <div>
+            <a className="link" style={{textTransform: 'uppercase'}}></a>
+        </div>
+        </>
+      }else  {
         button = 
         <>
         <div className = 'buttonArrow' style={{marginTop:'18px'}}>
