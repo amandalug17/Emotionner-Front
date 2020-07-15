@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import {Bar} from 'react-chartjs-2';
+import {Bar, Doughnut} from 'react-chartjs-2';
 import AuthService from '../../Services/auth.service';
 
 class ECountChart extends Component{
@@ -69,7 +69,7 @@ class ECountChart extends Component{
             <h5 className="card-title">Conoce tus estados de ánimo</h5>
             <h6 className="card-subtitle mb-2 text-muted">Conoce que emoción es más predominante en tu vida, basado en tus entradas diarias.</h6>
             <div className="chart-container" style={{position: "relative", height: " 60vh"}}>
-                <Bar data={this.state.Data}  
+                <Doughnut data={this.state.Data}  
                  options={{ maintainAspectRatio: false}} />    
             </div>
             </div>

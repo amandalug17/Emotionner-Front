@@ -1064,7 +1064,7 @@ margin:0
   margin: 0 auto;
 }
 .emotionB{
-  font-size: 10rem;
+  font-size: 5rem;
   background: rgb(247,245,9);
   background: linear-gradient(47deg, rgba(247,245,9,1) 0%, rgba(18,116,5,1) 0%, rgba(68,208,49,1) 100%);
   -webkit-background-clip: text;
@@ -1074,7 +1074,7 @@ margin:0
   margin: 0 auto;
 }
 .emotionE{
-  font-size: 10rem;
+  font-size: 5rem;
   background: rgb(247,245,9);
   background: linear-gradient(47deg, rgba(247,245,9,1) 0%, rgba(210,8,8,1) 0%, rgba(208,105,49,1) 100%);
   -webkit-background-clip: text;
@@ -1084,7 +1084,7 @@ margin:0
   margin: 0 auto;
 }
 .emotionA{
-  font-size: 10rem;
+  font-size: 5rem;
   background: rgb(247,245,9);
   background: linear-gradient(47deg, rgba(247,245,9,1) 0%, rgba(213,21,189,1) 0%, rgba(236,88,195,1) 100%);
   -webkit-background-clip: text;
@@ -1094,7 +1094,7 @@ margin:0
   margin: 0 auto;
 }
 .emotionEs{
-  font-size: 10rem;
+  font-size: 5rem;
   background: rgb(247,245,9);
   background: linear-gradient(47deg, rgba(247,245,9,1) 0%, rgba(213,104,21,1) 0%, rgba(236,132,88,1) 100%);
   -webkit-background-clip: text;
