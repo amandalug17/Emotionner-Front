@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import AuthService from '../../Services/auth.service';
-import all from '../Forms/all';
-import 'font-awesome/css/font-awesome.min.css';
+
 
 class MothEmotion extends Component{
     constructor(props){
@@ -76,7 +75,6 @@ class MothEmotion extends Component{
             <div className="card rounded">
             <div className="card-body">
             <h5 className="card-title">Este Mes te has sentido...</h5>
-            <div><a  className=' d-flex justify-content-center' style={{fontSize: '10rem'}} ><i className={this.state.iconE}></i></a></div>
             <br/>
             <h3 className={
                 this.state.emotionMonth === 'INCREIBLE' ? "emotionI" :

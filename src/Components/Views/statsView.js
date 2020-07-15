@@ -17,11 +17,7 @@ class StatsView extends Component {
         <StatsHero/>
         <br/>
         <div className='container'>
-            <div className='row'>
-                <div className='col'>
-                <h1 className='d-flex justify-content-center'style={{margin: "20px", fontWeight:'lighter', letterSpacing: '5px', fontSize:'40px', fontFamily:'Montserrat'}}> Conoce tus estadisitcas</h1>
-                </div>
-            </div>
+      
             <div className='row'>
                 <div className='col'>
                    <MothEmotion />
