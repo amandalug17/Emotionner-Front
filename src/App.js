@@ -16,6 +16,8 @@ import addArticleView from "./Components/Views/addArticle";
 import addPhraseView from './Components/Views/addPhrase';
 import RecomendationView from './Components/Views/recomendations';
 import adminDashboard from "./Components/Views/adminDash";
+import AllArticle from './Components/Views/AdminAllArticles';
+import AllPhrases from './Components/Views/AdminAllPhrases';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -41,6 +43,8 @@ const App = () => {
             <Route exact path="/admin/createArticle" component={addArticleView} />
             <Route exact path="/admin/createPhrase" component={addPhraseView} />
             <Route exact path="/admin/dashboard" component={adminDashboard} />
+            <Route exact path="/admin/AllArticles" component={AllArticle} />
+            <Route exact path="/admin/AllPhrases" component={AllPhrases} />
             <PrivateRoute exact path="/articles" component={RecomendationView} />
             <PrivateRoute exact path="/profile" component={CalendarioView} />
             <PrivateRoute exact path="/agenda" component={agendaView} />
