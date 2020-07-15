@@ -66,11 +66,11 @@ class MothEmotion extends Component{
             <div className="card rounded">
             <div className="card-body">
             <h5 className="card-title">Este Mes te haz sentido...</h5>
-        <h3>{this.state.emotionMonth}</h3>
+            <h3 className={this.state.iconE ===21? "emocionT" : "emocionMes"}>{this.state.emotionMonth}</h3>
             <div><a  className=' d-flex justify-content-center' >
                 {
                 this.state.iconE ===1 ? <i className="increible far fa-grin-stars"></i>:
-                this.state.iconE ===11 ? <i className="bien far fa-smile"></i>:
+                this.state.emotionMonth ==='TRISTE'? <i className="bien far fa-smile"></i>:
                 this.state.iconE ===21 ? <i className="triste far fa-sad-tear"></i>:
                 this.state.iconE ===31 ? <i className="enojado far fa-angry"></i>:
                 this.state.iconE ===41 ? <i className="ansioso far fa-grimace"></i>:

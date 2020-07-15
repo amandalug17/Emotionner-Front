@@ -6,6 +6,7 @@ import TasksPerDay from '../Charts/tasksPerDay';
 import StatsHero from '../Elements/statsHero';
 import './../../App.css'
 import  ECountChart from '../Charts/emotionCouter';
+import Navbar_I from "../Elements/navbar";
 
 class StatsView extends Component {
   
@@ -13,6 +14,7 @@ class StatsView extends Component {
   
       return (
         <>
+        <Navbar_I/>
         <StatsHero/>
         <br/>
         <div className='container'>

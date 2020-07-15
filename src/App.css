@@ -1043,6 +1043,16 @@ margin:0
 .estresado:hover{
   color: rgb(197, 96, 1);
 }
+.emocionT{
+  font-size: 5rem;
+  background: rgb(214,222,82);
+  background: linear-gradient(47deg, rgba(214,222,82,1) 0%, rgba(6,82,120,1) 0%, rgba(125,217,244,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  text-align: center;
+  margin: 0 auto;
+}
 
 .blanco{
   background-color: #ededed;
