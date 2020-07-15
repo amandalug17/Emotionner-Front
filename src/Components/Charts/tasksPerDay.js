@@ -42,8 +42,7 @@ class TasksPerDay extends Component {
                             fill: false,
                             borderColor: "#A288E3",
                             lineTension: 0.5,
-                            pointRadius: 5,
-                            //responsive: true
+                            pointRadius: 5
 
                         }
                     ]
@@ -54,13 +53,17 @@ class TasksPerDay extends Component {
     
     render() {
         return (
-            <>
-            <div class="chart-container" style={{position: "relative", height: " 60vh", width:"60vw"}}>
-                <Line data={this.state.Data}  
-                 options={{ maintainAspectRatio: false}} />    
-            </div>
+            <div className="card rounded">
+                <div className="card-body">
+                    <h5 className="card-title">Revisa tu progreso</h5>
+                    <h6 className="card-subtitle mb-2 text-muted">¡Comprométete a lograr más cada día!</h6>
+                    <div className="chart-container" style={{position: "relative", height: " 60vh"}}>
+                        <Line data={this.state.Data}  
+                            options={{ maintainAspectRatio: false}} />    
+                    </div>
+                </div>
            
-            </>
+            </div>
         )
     }
 

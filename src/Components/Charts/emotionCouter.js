@@ -64,11 +64,11 @@ class ECountChart extends Component{
     }
     render(){
         return(
-            <div class="card rounded">
-            <div class="card-body">
-            <h5 class="card-title">Conoce tus estados de ánimo</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Conoce que emoción es más predominante en tu vida, basado en tus entradas diarias.</h6>
-            <div class="chart-container" style={{position: "relative", height: " 60vh"}}>
+            <div className="card rounded">
+            <div className="card-body">
+            <h5 className="card-title">Conoce tus estados de ánimo</h5>
+            <h6 className="card-subtitle mb-2 text-muted">Conoce que emoción es más predominante en tu vida, basado en tus entradas diarias.</h6>
+            <div className="chart-container" style={{position: "relative", height: " 60vh"}}>
                 <Bar data={this.state.Data}  
                  options={{ maintainAspectRatio: false}} />    
             </div>
