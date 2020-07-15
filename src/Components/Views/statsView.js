@@ -1,5 +1,4 @@
-import React, { Component, useState} from 'react'
-import { Container, Row, Col } from 'reactstrap'
+import React, { Component} from 'react'
 import Footer from '../Elements/footerInside'
 import MothEmotion from '../Charts/monthEmotion'
 import TasksPerDay from '../Charts/tasksPerDay';
