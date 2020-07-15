@@ -26,7 +26,7 @@ class StatsView extends Component {
                 </div>
             </div>
             <div className='row justify-content-center'>
-                <div className='col' style={{backgroundColor: '#ffff'}}>
+                <div className='col'>
                 < ECountChart />
                 </div>
             </div>
