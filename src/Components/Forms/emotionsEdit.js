@@ -214,7 +214,7 @@ class AddEditFormE extends React.Component {
           </FormGroup>
           <Col>
           <div className="d-flex justify-content-end">
-          <Button className='btn-horizontal d-flex justify-content-center' style={{marginTop: '20px', marginBottom:'20px', backgroundColor:'#fff', padding:'0px', fontWeight:'bold', letterSpacing: '2px'}}>Submit</Button>
+          <Button className='btn btn--opacity homepagebutton' style={{marginTop: '20px', width:'50%'}}>Submit</Button>
           </div>
           </Col>
         </Form>

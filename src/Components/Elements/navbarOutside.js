@@ -32,25 +32,12 @@ const Navbar_ = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>  
           <NavItem>
-              <NavLink href="/profile" >Mi calendario</NavLink>
+              <NavLink href="/login">Iniciar Sesion</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/agenda" >Mi agenda</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/mood" >Mi Mood Journal</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/articles" >Articulos</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/stats" >Estadísticas</NavLink>
-            </NavItem>
-            <NavItem>
-            <NavLink href='/' type='button' style={{fontWeight:'lighter'}, {fontSize:'16px'}} className='btn-md btn-light' onClick = {logOut}><i className="fa fa-user"></i>   Cerrar Sesión</NavLink>
+              <NavLink href="/singup">Registrate</NavLink>
             </NavItem>
             </Nav>
-          
         </Collapse>
       </Navbar>
     </div>

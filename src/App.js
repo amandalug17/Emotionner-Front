@@ -8,7 +8,6 @@ import CalendarioView from "./Components/Views/calendarView";
 import Register from "./Components/Forms/registration";
 import agendaView from "./Components/Views/agendaView";
 import emotionsView from "./Components/Views/emotionsView";
-import Navbar_ from "./Components/Elements/navbar";
 import  PrivateRoute from "./Services/privateRoute";
 import HomePage from "./Components/Views/homePage";
 import LoginAdminForm from "./Components/Forms/login-admin-form";
@@ -17,6 +16,8 @@ import addPhraseView from './Components/Views/addPhrase';
 import RecomendationView from './Components/Views/recomendations';
 import adminDashboard from "./Components/Views/adminDash";
 import StatsView from './Components/Views/statsView';
+import AllArticle from './Components/Views/AdminAllArticles';
+import AllPhrases from './Components/Views/AdminAllPhrases';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -32,7 +33,6 @@ const App = () => {
 
   return (
     <>
-    <Navbar_/>
     <Router>
             <Switch>
             <Route exact path={"/login"} component={Login} />
@@ -43,6 +43,8 @@ const App = () => {
             <Route exact path="/admin/createPhrase" component={addPhraseView} />
             <Route exact path="/admin/dashboard" component={adminDashboard} />
             <PrivateRoute exact path="/stats" component={StatsView} />
+            <Route exact path="/admin/AllArticles" component={AllArticle} />
+            <Route exact path="/admin/AllPhrases" component={AllPhrases} />
             <PrivateRoute exact path="/articles" component={RecomendationView} />
             <PrivateRoute exact path="/profile" component={CalendarioView} />
             <PrivateRoute exact path="/agenda" component={agendaView} />

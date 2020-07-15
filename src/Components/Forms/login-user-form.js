@@ -5,6 +5,7 @@ import CheckButton from "react-validation/build/button";
 import Footer from "../Elements/footerOutside";
 import AuthService from "../../Services/auth.service";
 import {FormGroup} from 'reactstrap';
+import Navbar_O from "../Elements/navbarOutside";
 import './../../App.css'
 const required = (value) => {
   if (!value) {
@@ -68,6 +69,7 @@ const Login = (props) => {
 
   return (
     <>
+    <Navbar_O/>
     <div className = "blanco">
     <div className="container">
     <div className="cont">

@@ -7,6 +7,7 @@ import axios from 'axios'
 import Footer from '../Elements/footerInside'
 import Quote from '../Elements/quote'
 import EmotionsHero from '../Elements/emotionsHero'
+import Navbar_I from "../Elements/navbar";
 import './../../App.css'
 
 /**
@@ -73,6 +74,7 @@ class emotionsView extends Component {
   render() {
     return (
       <>
+      <Navbar_I/>
       <EmotionsHero/>
       <Container className="container" style={{marginBottom: '20px'}}>
         <Row>
