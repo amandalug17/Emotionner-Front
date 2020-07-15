@@ -1,8 +1,8 @@
 import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import Footer from '../Elements/footerInside';
+import Footer from '../Elements/footerInside'
 import MothEmotion from '../Charts/monthEmotion'
-import TasksPerDay from '../Elements/tasksPerDay';
+import TasksPerDay from '../Charts/tasksPerDay';
 import StatsHero from '../Elements/statsHero';
 import './../../App.css'
 import  ECountChart from '../Charts/emotionCouter';
@@ -14,6 +14,7 @@ class StatsView extends Component {
       return (
         <>
         <StatsHero/>
+        <br/>
         <div className='container'>
             <div className='row'>
                 <div className='col'>
@@ -31,7 +32,8 @@ class StatsView extends Component {
                 < ECountChart />
                 </div>
             </div>
-            <div className='row'>
+            <br/>
+            <div className='row justify-content-center'>
                 <div className='col'>
                 <TasksPerDay/>
                 </div>

@@ -3,22 +3,15 @@ import { Container, Row, Col } from 'reactstrap'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
 import './../../App.css'
-import {Line} from 'react-chartjs-2';
 
-
-class TasksPerDay extends Component {
-    state = {
-        items: []
-    }
-
-    
+class OfTheMonth extends Component {
     render() {
         return (
             <>
-            
+           
             </>
         )
     }
 
 }
-export default TasksPerDay; 
+export default OfTheMonth; 
