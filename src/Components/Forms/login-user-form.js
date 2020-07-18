@@ -18,6 +18,16 @@ const required = (value) => {
 };
 
 const Login = (props) => {
+  const required = (value) => {
+    if (!value) {
+      return (
+        <div className="alert alert-danger" role="alert">
+          Este campo es requerido!
+        </div>
+      );
+    }
+  };
+  
   const form = useRef();
   const checkBtn = useRef();
 
@@ -157,6 +167,7 @@ const Login = (props) => {
 };
 
 export default Login;
+
 
 
 

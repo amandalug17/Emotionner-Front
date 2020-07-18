@@ -45,20 +45,6 @@ const login = (email, password) => {
     });
 };
 
-const loginTest = async (email, password) => {
-  return await axios
-    .post(API_URL + "users/signin", {
-      email,
-      password,
-    })
-    .then((response) => {
-      if (response.data.accessToken) {
-        localStorage.setItem("user", JSON.stringify(response.data));
-      }
-
-      return response.data;
-    });
-};
 
 const loginA = (email, password) => {
   return axios
@@ -112,7 +98,6 @@ const isAdmin= (user)=>{
 export default {
   register,
   login,
-  loginTest,
   logout,
   getCurrentUser,
   isAuth, 
