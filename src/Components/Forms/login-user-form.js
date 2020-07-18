@@ -76,7 +76,7 @@ const Login = (props) => {
         <div className="form sign-in">
             <h2 style={{fontWeight:"inherit"}}>¡Bienvenido de Vuelta!</h2>
             <Form onSubmit={handleLogin} ref={form}>
-                <FormGroup>
+                <FormGroup className='form1'>
                     <label>
                         <span>Correo Electrónico</span>
                         <Input 
@@ -91,7 +91,7 @@ const Login = (props) => {
                         ></Input>
                     </label>
                 </FormGroup>
-                <FormGroup>
+                <FormGroup className='form2'>
                     <label>
                         <span>Contraseña</span>
                         <Input  type="password"

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test for Login renders correctly 1`] = `<Login />`;
+
+exports[`test for Login should call onChange with an imput value in email 1`] = `"{}"`;
+
+exports[`test for Login should call onChange with an imput value in password 1`] = `"{}"`;
