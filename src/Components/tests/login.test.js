@@ -2,7 +2,6 @@ import React from 'react';
 import Login from '../Forms/login-user-form';
 import { shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import axios from 'axios';
 import AuthService from "../../Services/auth.service";
 import mockAxios from 'axios';
 
@@ -34,14 +33,13 @@ describe('test for Login', () => {
         configure({ adapter: new Adapter() })
         const component = shallow(<Login/>);
         Login.required = jest.fn().mockResolvedValueOnce("");
-        component.find('.form1').dive().find('.form-control').simulate('change', {target: {
-            value: 'Change function'
-        }});
         if(component.find('.form1').dive().find('.form-control').simulate('change', {target: {
-            value: 'Change function'
+            value: ''
         }})){
             Login.required("");
             expect(Login.required).toHaveBeenCalledTimes(1);
+        } else {
+            expect(Login.required).toHaveBeenCalledTimes(0);
         }
 
     })

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test for registration form renders correctly 1`] = `<Register />`;
+
+exports[`test for registration form should call onChange with an imput value in Birthdate 1`] = `"{}"`;
+
+exports[`test for registration form should call onChange with an imput value in email 1`] = `"{}"`;
+
+exports[`test for registration form should call onChange with an imput value in lastname 1`] = `"{}"`;
+
+exports[`test for registration form should call onChange with an imput value in name 1`] = `"{}"`;
+
+exports[`test for registration form should call onChange with an imput value in password 1`] = `"{}"`;

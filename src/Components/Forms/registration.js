@@ -143,21 +143,24 @@ const Register = (props) => {
           <h2 className="h2">¡Regístrate ya!</h2>
           <Form onSubmit={handleRegister} ref={form} autocomplete='off'>
             {!successful && (
-              <div >
+              <div>
                 <div className="label-1">
-                  <label htmlFor="name">Nombre</label>
+                <FormGroup className = 'name1'>
+                  <label  htmlFor="name">Nombre</label>
                   <Input
                     placeholder="Introduzca su nombre"
                     type="text"
-                    className="form-control input-1 input-2"
+                    className="form-control input-1 input-2 name"
                     name="name"
                     value={name}
                     onChange={onChangeName}
                     validations={[required]}
                   />
+                  </FormGroup>
                 </div>
 
                 <div className="label-1">
+                  <FormGroup className = 'Lastname'>
                   <label htmlFor="lastname">Apellido</label>
                   <Input
                     placeholder="Introduzca su apellido"
@@ -168,9 +171,11 @@ const Register = (props) => {
                     onChange={onChangeLastName}
                     validations={[required]}
                   />
+                  </FormGroup>
                 </div>
 
                 <div className="label-1">
+                <FormGroup className = 'email'>
                   <label htmlFor="email">Correo Electrónico</label>
                   <Input
                     placeholder="Introduzca su correo"
@@ -181,9 +186,11 @@ const Register = (props) => {
                     onChange={onChangeEmail}
                     validations={[required, validEmail]}
                   />
+                  </FormGroup>
                 </div>
 
                 <div className="label-1">
+                <FormGroup className='password'>
                   <label htmlFor="password">Contraseña</label>
                   <Input
                     placeholder="Introduzca su contraseña"
@@ -194,9 +201,11 @@ const Register = (props) => {
                     onChange={onChangePassword}
                     validations={[required, vpassword]}
                   />
+                  </FormGroup>
                 </div>
 
                 <div className="label-1">
+                  <FormGroup className = 'Bdate'>
                   <label htmlFor="birthdate">Fecha de Nacimiento</label>
                   <Input
                     placeholder="Introduzca su fecha de nacimiento"
@@ -207,6 +216,7 @@ const Register = (props) => {
                     onChange={onChangeBirthdate}
                     validations={[required]}
                   />
+                  </FormGroup>
                 </div>
 
                 <div className="label-1">
@@ -242,4 +252,9 @@ const Register = (props) => {
   );
 };
 
-export default Register;
+export default {
+  Register,
+  required,
+  validEmail,
+  vpassword
+};
