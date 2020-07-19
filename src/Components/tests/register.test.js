@@ -102,7 +102,7 @@ describe('test for registration form', () => {
     it('should validate email', () => {
         configure({ adapter: new Adapter() })
         const component = shallow(<registration.Register/>);
-        registration.validEmail = jest.fn().mockResolvedValueOnce("");
+        registration.validEmail = jest.fn().mockResolvedValueOnce("emailNotValid");
         if(component.find('.email').dive().find('.form-control').simulate('change', {target: {
             value: 'emailNotValid'
         }})){
@@ -117,7 +117,7 @@ describe('test for registration form', () => {
     it('should validate password', () => {
         configure({ adapter: new Adapter() })
         const component = shallow(<registration.Register/>);
-        registration.vpassword = jest.fn().mockResolvedValueOnce("");
+        registration.vpassword = jest.fn().mockResolvedValueOnce("1234");
         if(component.find('.email').dive().find('.form-control').simulate('change', {target: {
             value: '1234'
         }})){
