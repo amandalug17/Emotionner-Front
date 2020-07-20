@@ -1212,9 +1212,11 @@ margin:0
   margin: 0 auto;
   line-height: 1.625;
 }
+
 /*
 Tables
 */
+
 table{
   width:100%;
   vertical-align: middle;
@@ -1241,7 +1243,7 @@ th{
   text-align: left;
   font-family: 'Roboto', sans-serif;
   font-weight: lighter;
-  font-size: 18px ;
+  font-size: 18px;
   text-transform: uppercase;
 }
 td{
@@ -1264,6 +1266,43 @@ td{
   opacity: 0.4 !important;
   color: #cc83eb96;
   background-color: #d7ade996;
+}
+
+@media (max-width: 400px){
+  th{
+    font-size: 0.4rem;
+  }
+  td{
+    font-size: 0.4rem;
+  }
+  td .buttonArrow{
+    margin-left: -7px;
+  }
+  td .buttonArrow .link{
+    letter-spacing: 1px;
+    padding-left: 0px;
+  }
+  td .completed a{
+    font-size: 0.9rem;
+    margin-left: -10px;
+  }
+}
+@media (max-width: 800px){
+  th{
+    font-size: 0.8rem;
+  }
+  td{
+    font-size: 0.8rem;
+  }
+  td .buttonArrow .link{
+    letter-spacing: 2px;
+    padding-left: 1px;
+  }
+  td .completed a{
+    font-size: 0.9rem;
+    margin-left: -3px;
+  }
+
 }
 
 /* demo styles */
