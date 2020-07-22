@@ -1,7 +1,10 @@
 import React from 'react';
 import './../../App.css'
 
-
+/**
+ *This renders the footer fot the outside
+ *
+ */
 const Footer = (props) => {
 return(
     <footer className="outside-footer">

@@ -1,3 +1,6 @@
+/**
+ *  Imports
+ */
 import React, { Component } from 'react'
 import { Table} from 'reactstrap';
 import ModalForm from '../Forms/tasksModal'
@@ -10,7 +13,7 @@ import { NotificationContainer } from 'react-notifications';
 
 
 /**
- * TASKS TABLE!!
+ * This is the task table component
  */
 
 class TaskTable extends Component {
@@ -27,10 +30,17 @@ class TaskTable extends Component {
     userId: ''
 }
 
-
+/**
+ * This is the function to do the logic elimination of a task, we update the property enableled of the task
+ * if it is false we won't show the task in the front
+ * @param item  as an object instance of a task
+ */
   deleteItem = item => {
+    //First we ask for a confirmation to delete the task
     let confirmDelete = window.confirm('¿Quiere eliminar esta tarea? Esta acción no se puede deshacer')
+    //If it's true we delete the task 
     if(confirmDelete){
+      //We change the value of enable to 0 meaning its false
       let data={
         id: item.id,
         title: item.title,
@@ -41,8 +51,8 @@ class TaskTable extends Component {
         time: item.time, 
         enabled: 0
       }
-      console.log(data)
       
+      //Then we do a PUT or UPDATE call the database passing the new task information
       fetch(`https://emotionner.herokuapp.com/users/updateTask`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -50,15 +60,20 @@ class TaskTable extends Component {
       })
         .then(response => response.json())
         .then(item => {
-          console.log(item.data)
+          //Then we update the view
           window.location.reload()
         })
         .catch(err => console.log(err)) 
     }
 
   }
-
+/**
+ * This is the function to do the logic to change the completation status of a task, we update the property completed of the task
+ * if it is false we blur the task in the view
+ * @param item  as an object instance of a task
+ */
   completeTask= item => {
+    //We change the value of completed to the opposite value
      var itemStatus = !item.completed;
       let data={
         id: item.id,
@@ -70,8 +85,8 @@ class TaskTable extends Component {
         time: item.time, 
         enabled: 1
       }
-      console.log(data)
       
+       //Then we do a PUT or UPDATE call the database passing the new task information
       fetch(`https://emotionner.herokuapp.com/users/updateTask`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -79,7 +94,6 @@ class TaskTable extends Component {
       })
         .then(response => response.json())
         .then(item => {
-          console.log(item.data)
           window.location.reload()
         })
         .catch(err => console.log(err)) 
@@ -94,7 +108,8 @@ class TaskTable extends Component {
 
     let date = moment(moment.now()).format("YYYY-MM-DD")
     /**
-     * We iterate across the items or tasks and we show them in the table
+     * We iterate across the items or tasks and we show them in the table to show the notification
+     * were the task date match the current date
      */
     const items = this.props.items.map(item => {
       if(`${item.start}`=== date && item.enabled === 1 && item.completed === false){

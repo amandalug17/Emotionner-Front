@@ -1,6 +1,8 @@
 import React from 'react';
 import './../../App.css'
-
+/**
+ * This is a hero component
+ */
 const TasksHero = () => {
 
     return (

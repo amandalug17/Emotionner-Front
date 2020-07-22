@@ -1,6 +1,12 @@
+/**
+ * Imports
+ */
 import React, { Component } from 'react'
 import './../../App.css'
 
+/**
+ * This class renders the phrase component
+ */
 class Phrases extends Component {
 
 

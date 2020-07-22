@@ -1,7 +1,9 @@
 import React from 'react';
 import './../../App.css'
 import AuthService  from "./../../Services/auth.service";
-
+/**
+ * This is the admin side bar component
+ */
 const Sidebar_ = (props) => {
     const $button  = document.querySelector('#sidebar-toggle');
     const $wrapper = document.querySelector('#wrapper');
@@ -13,6 +15,10 @@ const Sidebar_ = (props) => {
             });
 
     }
+    /**
+ * This is the fuction to logout of the app, onClick, we call the function from authService logout 
+ * that removes the current user from the locale storage of the browser
+ */
     const logOut = () => {
       AuthService.logoutA();
     };

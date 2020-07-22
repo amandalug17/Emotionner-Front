@@ -17,9 +17,7 @@ const Navbar_ = (props) => {
     }
   }, []);
 
-  const logOut = () => {
-    AuthService.logout();
-  };
+  
 
   const toggle = () => setIsOpen(!isOpen);
 

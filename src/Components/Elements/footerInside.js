@@ -1,6 +1,12 @@
+/**
+ * Imports
+ */
 import React from 'react';
 import './../../App.css'
-
+/**
+ *This renders the footer fot the inside 
+ *
+ */
 const Footer = (props) => {
 return(
     <footer className="site-footer">

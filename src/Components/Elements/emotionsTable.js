@@ -6,14 +6,14 @@ import './../../App.css'
 
 
 /**
- * EMOTIONS TABLE!!
+ * This class renders the emotions table
  */
 
 class EmotionsTable extends Component {
 
    /**
     * We recive an id so we need to asign a value to the variable
-    * @param {*} item 
+    * @param item 
     */
    setMood (item){
        var mood = ''
@@ -35,7 +35,8 @@ class EmotionsTable extends Component {
 
    /**
     * Function to assing the icon to the table
-    * @param {*} item 
+    * @param item as a string
+    * @returns icon as a string
     */
    setIcon (item){
         var icon = ''
@@ -54,7 +55,10 @@ class EmotionsTable extends Component {
         }
         return icon
     }
-
+    /**
+     * We cast the date to a YY-MM-DD string date
+     * @param item as a string
+     */
     toDate(item){
         var date= new Date(item)
         var fecha = date.toLocaleString('es');

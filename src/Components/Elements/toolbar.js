@@ -1,13 +1,22 @@
+/**
+ * Imports
+ */
 import React from 'react';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
 import './../../App.css'
 
+/**
+ * This are the const to navigate the dates in the libary
+ */
 export const navigateContants = {
     PREVIOUS: 'PREV',
     NEXT: 'NEXT',
     TODAY: 'TODAY',
     DATE: 'DATE'
 };
+/**
+ * This are the const to change the view of tha calendar
+ */
 export const views = {
     MONTH: 'month',
     WEEK: 'week',
@@ -15,7 +24,9 @@ export const views = {
     DAY: 'day',
     AGENDA: 'agenda'
 };
-
+/**
+ * We created a custom responsive toolbar for the calendar
+ */
 export default class CalendarToolbar extends Toolbar {
 
 	componentDidMount() {
@@ -29,7 +40,8 @@ export default class CalendarToolbar extends Toolbar {
             <>
             <div className='container-fluid'>
                 {/**
-                 * Toolbar en pantallas sm
+                 * Toolbar in sm screens, we use icons to change the month of the calendar, in sm and xs screens we
+                 * dont show the week or day views.
                  */}
             <div className=" row d-none d-sm-flex d-md-none calendar-header">
                 <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
@@ -43,7 +55,7 @@ export default class CalendarToolbar extends Toolbar {
                 </span>
             </div>
               {/**
-                 * Toolbar en pantallas xs
+                 * Toolbar in xs screens, we use icons to change the month of the calendar
                  */}
             <div className=" row d-none d-flex d-sm-none calendar-header ">
                 <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
@@ -57,7 +69,7 @@ export default class CalendarToolbar extends Toolbar {
                 </span>
             </div>
               {/**
-                 * Toolbar en pantallas md, lg y xl
+                 * Toolbar en pantallas md, lg y xl, we use buttons to change the month of the calendar
                  */}
             <div className="row d-none d-md-flex p-1 calendar-header">
                 <span className="col-sm p-1 calendar-sm-toolbar "  >

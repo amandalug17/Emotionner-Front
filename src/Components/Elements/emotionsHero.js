@@ -1,6 +1,10 @@
-
+/**
+ * Imports
+ */
 import React from 'react';
-
+/**
+ * This class renders the hero
+ */
 const EmotionsHero = () => {
 
     return (

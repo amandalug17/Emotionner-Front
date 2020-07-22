@@ -1,9 +1,15 @@
+/**
+ * Imports
+ */
 import React, { useState, useEffect } from 'react';
 import {Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink} from 'reactstrap';
 import AuthService from './../../Services/auth.service'
 import './../../App.css'
-
+/**
+ * This is the navbar component
+ */
 const Navbar_ = (props) => {
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -16,11 +22,16 @@ const Navbar_ = (props) => {
       setCurrentUser(user);
     }
   }, []);
-
+/**
+ * This is the fuction to logout of the app, onClick, we call the function from authService logout 
+ * that removes the current user from the locale storage of the browser
+ */
   const logOut = () => {
     AuthService.logout();
   };
-
+  /**
+   * Function to toggle the navbar , we set the state to false
+   */
   const toggle = () => setIsOpen(!isOpen);
 
 
