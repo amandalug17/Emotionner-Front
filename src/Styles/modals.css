@@ -317,3 +317,13 @@ p{
 .navbar-inverse{
     box-shadow: 0 0.5rem 1rem 0 rgba(102, 99, 99, 0) !important;
 }
+
+.d-flex .btn--opacity{
+    border: none;
+}
+
+@media (max-width:400px){
+    .d-flex .btn--opacity{
+        padding-top: 3px;
+    }
+}

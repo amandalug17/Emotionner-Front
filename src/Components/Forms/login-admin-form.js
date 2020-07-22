@@ -82,7 +82,7 @@ class LoginAdminForm extends Component{
                                     <Input className='form-control' type="email" value={this.state.username} onChange={(value)=> this.setState({username:value.target.value})}  placeholder="Introduzca su usuario "></Input>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label>Contraseña</Label>
+                                    <Label className="art-label">Contraseña</Label>
                                     <Input className='form-control' type="password"  value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})} placeholder="Introduzca su contraseña" required></Input>
                                 </FormGroup>
                                 <div style={{margin: '20px'}}>
