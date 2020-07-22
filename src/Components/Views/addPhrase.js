@@ -1,8 +1,19 @@
+/**
+ * Imports
+ */
+//React library
 import React, {Component} from 'react';
+//Sidebar component
 import Sidebar from '../Elements/sidebar';
+//Create phrase component
 import CreatePhrase from '../Forms/createPhrase';
+//App css file
 import './../../App.css'
 
+/**
+ * This class renders the view for the component to create an phrase in the
+ * administartor view.
+ */
 class addPhraseView extends Component{
     render(){
         return(

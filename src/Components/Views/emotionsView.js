@@ -11,7 +11,8 @@ import Navbar_I from "../Elements/navbar";
 import './../../App.css'
 
 /**
- * Emotions View where all agenda components are called
+ * Emotions View where all agenda components are called we return the Emotions Table and the button 
+ * to add a new emotions
  */
 class emotionsView extends Component {
   state = {
@@ -20,18 +21,17 @@ class emotionsView extends Component {
 
   /**
    * GetItems()
-   * @returns emotions in the database
+   * @return emotions in the database
    */
 
   getItems(){
+    //We get the current user
     const currentUser = AuthService.getCurrentUser();
+    //We get its id
     const id = currentUser.id;
-    console.log(id)
-    //Axios call
+    //Then we execute the axios call to the API
     axios.get(`https://emotionner.herokuapp.com/users/registeredEmotions/${id}`)
         .then(response => {
-          console.log('ANTES')
-          console.log(response.data)
           let appointments = response.data;
           this.setState({
             items : appointments

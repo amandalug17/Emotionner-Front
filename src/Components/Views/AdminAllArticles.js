@@ -1,9 +1,15 @@
+/**
+ * Imports
+ */
 import React, {Component} from 'react';
 import { Container, Row, Col } from 'reactstrap'
 import Sidebar from '../Elements/sidebar';
 import Article from '../AdminView/ArticlesFullCall'
 import './../../App.css'
-
+/**
+ * This class renders the view for the component to view all articles in the database in the
+ * administartor view.
+ */
 class AllArticles extends Component{
     render(){
         return(

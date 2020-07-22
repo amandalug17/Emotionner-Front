@@ -1,10 +1,15 @@
+/**
+ * Imports
+ */
 import React from 'react';
 import Calendario from '../Elements/calendar';
 import Footer from '../Elements/footerInside'
 import './../../App.css'
 import Navbar_I from "../Elements/navbar";
 
-
+/**
+ * This hook renders the view for the calendar
+ */
 
 
 const CalendarView = () =>{

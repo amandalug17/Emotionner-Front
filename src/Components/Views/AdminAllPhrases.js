@@ -1,9 +1,16 @@
+/**
+ * Imports
+ */
 import React, {Component} from 'react';
 import { Container, Row, Col } from 'reactstrap'
 import Sidebar from '../Elements/sidebar';
 import PhraseCallFull from '../AdminView/PhraseFullCall'
 import './../../App.css'
 
+/**
+ * This class renders the view for the component to view all phrases in the database in the
+ * administartor view.
+ */
 class AllPhrases extends Component{
     render(){
         return(

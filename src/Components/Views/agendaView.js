@@ -1,3 +1,6 @@
+/**
+ * Imports
+ */
 import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import ModalForm from '../Forms/tasksModal'
@@ -11,22 +14,27 @@ import './../../App.css'
 import Navbar_I from "../Elements/navbar";
 /**
  * Agenda View where all agenda components are called
+ * We render the task tables and the add a Task Button
  */
 class agendaView extends Component {
+  /**
+   * We set the state to an array of items, the items are the tasks of tje database
+   */
   state = {
     items: []
   }
 
   /**
    * GetItems()
-   * @returns tasks in the database
+   * @return tasks in the database
    */
 
   getItems(){
+    //We get the current user
     const currentUser = AuthService.getCurrentUser();
+    //We get its id
     const id = currentUser.id;
-    console.log(id)
-    //Axios call
+    //Then we execute the axios call to the API
     axios.get(`https://emotionner.herokuapp.com/users/tasks/${id}`)
         .then(response => {
           let aux = response.data.tasks.tasks;
@@ -42,6 +50,7 @@ class agendaView extends Component {
   }
 /***
  * Adds a new item to the state of the component
+ * @param item as an object of a task
  */
   addItemToState = (item) => {
     this.setState(prevState => ({
@@ -50,7 +59,7 @@ class agendaView extends Component {
   }
 /**
  * Updates de state of the component
- * @param {*} item 
+ * @param  item  as an object intance of a task in the state
  */
   updateState = (item) => {
     const itemIndex = this.state.items.findIndex(data => data.id === item.id)
@@ -64,7 +73,10 @@ class agendaView extends Component {
     ]
     this.setState({ items: newArray })
   }
-
+/**
+ * Deletes de state of the component
+ * @param  item  as an object intance of a task in the state
+ */
   deleteItemFromState = (id) => {
     const updatedItems = this.state.items.filter(item => item.id !== id)
     this.setState({ items: updatedItems })

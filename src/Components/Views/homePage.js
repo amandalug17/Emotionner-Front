@@ -1,10 +1,16 @@
+/**
+ * Imports
+ */
 import React, { useState, useEffect } from 'react';
 import Footer from '../Elements/footerInside';
 import Navbar_O from "../Elements/navbarOutside";
 import Navbar_I from "../Elements/navbar";
 import AuthService from './../../Services/auth.service'
 
-
+/**
+ * This is the homepage view component if we have an user we return a navbar with the options of 
+ * the logged users else we show the outside nav
+ */
 const HomePage = () => {
 
   const [currentUser, setCurrentUser] = useState(undefined);

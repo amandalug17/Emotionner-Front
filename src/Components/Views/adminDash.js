@@ -1,10 +1,15 @@
+/**
+ * Imports
+ */
 import React, {Component} from 'react';
 import { Container, Row, Col } from 'reactstrap'
 import Sidebar from '../Elements/sidebar';
 import Article from '../AdminView/ArticlesCall'
 import Phrase from '../AdminView/PhraseCall'
 import './../../App.css'
-
+/**
+ * This class renders the dashboard of the administrator.
+ */
 class adminDashboard extends Component{
     render(){
         return(

@@ -1,3 +1,6 @@
+/**
+ * Imports
+ */
 import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import Footer from '../Elements/footerInside'
@@ -6,7 +9,10 @@ import ArticleView from '../Forms/articleF';
 import PhraseView from '../Forms/PhraseF';
 import Navbar_I from "../Elements/navbar";
 import './../../App.css'
-
+/**
+ * This class renders the recomendatiosn view, we render the articles based in user emotions
+ * and the motivational phrase component.
+ */
 
 class RecomendationView extends Component {
   

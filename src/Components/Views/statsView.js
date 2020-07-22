@@ -1,3 +1,6 @@
+/**
+ * Imports
+ */
 import React, { Component} from 'react'
 import Footer from '../Elements/footerInside'
 import MothEmotion from '../Charts/monthEmotion'
@@ -6,6 +9,10 @@ import StatsHero from '../Elements/statsHero';
 import './../../App.css'
 import  ECountChart from '../Charts/emotionCouter';
 import Navbar_I from "../Elements/navbar";
+
+/**
+ * This class renders the statistics views, we render the charts in this view.
+ */
 
 class StatsView extends Component {
   
