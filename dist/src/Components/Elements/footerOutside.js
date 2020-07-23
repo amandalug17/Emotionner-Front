@@ -11,6 +11,13 @@ require("./../../App.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+
+ *This renders the footer fot the outside
+
+ *
+
+ */
 var Footer = function Footer(props) {
   return /*#__PURE__*/_react.default.createElement("footer", {
     className: "outside-footer"

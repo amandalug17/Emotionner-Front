@@ -41,6 +41,13 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+/**
+
+ * This class renders the view of the component to create an article in the
+
+ * administartor view.
+
+ */
 var addArticleView = /*#__PURE__*/function (_Component) {
   _inherits(addArticleView, _Component);
 
@@ -56,12 +63,14 @@ var addArticleView = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_sidebar.default, null), /*#__PURE__*/_react.default.createElement("div", {
+        className: "blanco"
+      }, /*#__PURE__*/_react.default.createElement("div", {
         className: "container"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "row justify-content-end"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "col col-md-10"
-      }, /*#__PURE__*/_react.default.createElement(_articuloForm.default, null)))));
+      }, /*#__PURE__*/_react.default.createElement(_articuloForm.default, null))))));
     }
   }]);
 

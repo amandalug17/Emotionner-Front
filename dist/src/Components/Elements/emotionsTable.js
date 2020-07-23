@@ -45,7 +45,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 /**
 
- * EMOTIONS TABLE!!
+ * This class renders the emotions table
 
  */
 var EmotionsTable = /*#__PURE__*/function (_Component) {
@@ -66,7 +66,7 @@ var EmotionsTable = /*#__PURE__*/function (_Component) {
 
      * We recive an id so we need to asign a value to the variable
 
-     * @param {*} item 
+     * @param item 
 
      */
     value: function setMood(item) {
@@ -92,7 +92,9 @@ var EmotionsTable = /*#__PURE__*/function (_Component) {
 
      * Function to assing the icon to the table
 
-     * @param {*} item 
+     * @param item as a string
+
+     * @returns icon as a string
 
      */
 
@@ -117,6 +119,14 @@ var EmotionsTable = /*#__PURE__*/function (_Component) {
 
       return icon;
     }
+    /**
+
+     * We cast the date to a YY-MM-DD string date
+
+     * @param item as a string
+
+     */
+
   }, {
     key: "toDate",
     value: function toDate(item) {

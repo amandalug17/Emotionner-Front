@@ -13,8 +13,6 @@ var _auth = _interopRequireDefault(require("../../Services/auth.service"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
-var _footerInside = _interopRequireDefault(require("../Elements/footerInside"));
-
 var _phrases = _interopRequireDefault(require("../Elements/phrases"));
 
 require("./../../App.css");
@@ -101,7 +99,6 @@ var PhraseView = /*#__PURE__*/function (_Component) {
       var currentUser = _auth.default.getCurrentUser();
 
       var id = currentUser.id;
-      var emotionid = '';
       /**
 
        * First we return the last emotion that the user registered 

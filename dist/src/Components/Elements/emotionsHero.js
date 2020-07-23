@@ -9,6 +9,17 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+
+ * Imports
+
+ */
+
+/**
+
+ * This class renders the hero
+
+ */
 var EmotionsHero = function EmotionsHero() {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     class: "hero-nav"

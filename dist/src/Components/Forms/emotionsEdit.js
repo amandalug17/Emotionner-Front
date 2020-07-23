@@ -293,14 +293,10 @@ var AddEditFormE = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/_react.default.createElement(_reactstrap.Col, null, /*#__PURE__*/_react.default.createElement("div", {
         className: "d-flex justify-content-end"
       }, /*#__PURE__*/_react.default.createElement(_reactstrap.Button, {
-        className: "btn-horizontal d-flex justify-content-center",
+        className: "btn btn--opacity homepagebutton",
         style: {
           marginTop: '20px',
-          marginBottom: '20px',
-          backgroundColor: '#fff',
-          padding: '0px',
-          fontWeight: 'bold',
-          letterSpacing: '2px'
+          width: '50%'
         }
       }, "Submit"))))));
     }

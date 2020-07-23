@@ -13,10 +13,23 @@ var _footerInside = _interopRequireDefault(require("../Elements/footerInside"));
 
 require("./../../App.css");
 
+var _navbar = _interopRequireDefault(require("../Elements/navbar"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+
+ * Imports
+
+ */
+
+/**
+
+ * This hook renders the view for the calendar
+
+ */
 var CalendarView = function CalendarView() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_navbar.default, null), /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "row"

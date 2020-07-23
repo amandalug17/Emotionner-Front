@@ -43,6 +43,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+/**
+
+ * This is the class for the modal Info or modal for the articles
+
+ */
 var ModalInfo = /*#__PURE__*/function (_Component) {
   _inherits(ModalInfo, _Component);
 
@@ -68,6 +73,12 @@ var ModalInfo = /*#__PURE__*/function (_Component) {
     };
     return _this;
   }
+  /**
+
+   * Function to manage the state of the modal
+
+   */
+
 
   _createClass(ModalInfo, [{
     key: "render",

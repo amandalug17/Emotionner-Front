@@ -23,7 +23,7 @@ var _footerInside = _interopRequireDefault(require("../Elements/footerInside"));
 
 var _auth = _interopRequireDefault(require("../../Services/auth.service"));
 
-var _reactstrap = require("reactstrap");
+var _navbarOutside = _interopRequireDefault(require("../Elements/navbarOutside"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -133,14 +133,12 @@ var Register = function Register(props) {
       setBirthdate = _useState8[1];
 
   var _useState9 = (0, _react.useState)(""),
-      _useState10 = _slicedToArray(_useState9, 2),
-      ocupation = _useState10[0],
-      setOcupation = _useState10[1];
+      _useState10 = _slicedToArray(_useState9, 1),
+      ocupation = _useState10[0];
 
   var _useState11 = (0, _react.useState)(false),
-      _useState12 = _slicedToArray(_useState11, 2),
-      premium = _useState12[0],
-      setPremium = _useState12[1];
+      _useState12 = _slicedToArray(_useState11, 1),
+      premium = _useState12[0];
 
   var _useState13 = (0, _react.useState)(""),
       _useState14 = _slicedToArray(_useState13, 2),
@@ -200,6 +198,7 @@ var Register = function Register(props) {
       _auth.default.register(name, lastname, email, birthdate, ocupation, premium, password).then(function (response) {
         alert(response.data.message);
         setSuccessful(true);
+        props.history.push("/login");
       }, function (error) {
         var resMessage = error.response && error.response.data && error.response.data.message || error.message || error.toString();
         alert(resMessage);
@@ -208,7 +207,7 @@ var Register = function Register(props) {
     }
   };
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_navbarOutside.default, null), /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "cont-reg"

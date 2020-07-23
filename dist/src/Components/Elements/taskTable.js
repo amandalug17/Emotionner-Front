@@ -51,7 +51,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
 
- * TASKS TABLE!!
+ * This is the task table component
 
  */
 var TaskTable = /*#__PURE__*/function (_Component) {
@@ -83,9 +83,11 @@ var TaskTable = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "deleteItem", function (item) {
-      var confirmDelete = window.confirm('¿Quiere eliminar esta tarea? Esta acción no se puede deshacer');
+      //First we ask for a confirmation to delete the task
+      var confirmDelete = window.confirm('¿Quiere eliminar esta tarea? Esta acción no se puede deshacer'); //If it's true we delete the task 
 
       if (confirmDelete) {
+        //We change the value of enable to 0 meaning its false
         var data = {
           id: item.id,
           title: item.title,
@@ -95,8 +97,8 @@ var TaskTable = /*#__PURE__*/function (_Component) {
           end: item.start,
           time: item.time,
           enabled: 0
-        };
-        console.log(data);
+        }; //Then we do a PUT or UPDATE call the database passing the new task information
+
         fetch("https://emotionner.herokuapp.com/users/updateTask", {
           method: 'PUT',
           headers: {
@@ -106,7 +108,7 @@ var TaskTable = /*#__PURE__*/function (_Component) {
         }).then(function (response) {
           return response.json();
         }).then(function (item) {
-          console.log(item.data);
+          //Then we update the view
           window.location.reload();
         }).catch(function (err) {
           return console.log(err);
@@ -115,6 +117,7 @@ var TaskTable = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "completeTask", function (item) {
+      //We change the value of completed to the opposite value
       var itemStatus = !item.completed;
       var data = {
         id: item.id,
@@ -125,8 +128,8 @@ var TaskTable = /*#__PURE__*/function (_Component) {
         end: item.start,
         time: item.time,
         enabled: 1
-      };
-      console.log(data);
+      }; //Then we do a PUT or UPDATE call the database passing the new task information
+
       fetch("https://emotionner.herokuapp.com/users/updateTask", {
         method: 'PUT',
         headers: {
@@ -136,7 +139,6 @@ var TaskTable = /*#__PURE__*/function (_Component) {
       }).then(function (response) {
         return response.json();
       }).then(function (item) {
-        console.log(item.data);
         window.location.reload();
       }).catch(function (err) {
         return console.log(err);
@@ -154,7 +156,9 @@ var TaskTable = /*#__PURE__*/function (_Component) {
       var date = (0, _moment.default)(_moment.default.now()).format("YYYY-MM-DD");
       /**
 
-       * We iterate across the items or tasks and we show them in the table
+       * We iterate across the items or tasks and we show them in the table to show the notification
+
+       * were the task date match the current date
 
        */
 
@@ -178,7 +182,7 @@ var TaskTable = /*#__PURE__*/function (_Component) {
         }) : /*#__PURE__*/_react.default.createElement("i", {
           className: "far fa-square marked"
         })))), /*#__PURE__*/_react.default.createElement("td", null, item.title), /*#__PURE__*/_react.default.createElement("td", null, item.description), /*#__PURE__*/_react.default.createElement("td", null, item.start), /*#__PURE__*/_react.default.createElement("td", null, item.time), /*#__PURE__*/_react.default.createElement("td", null, /*#__PURE__*/_react.default.createElement(_tasksModal.default, {
-          buttonLabel: "Editar",
+          buttonLabel: !item.completed ? "Editar" : " ",
           item: item,
           updateState: _this2.props.updateState
         })), /*#__PURE__*/_react.default.createElement("td", null, /*#__PURE__*/_react.default.createElement("div", {

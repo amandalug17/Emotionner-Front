@@ -55,11 +55,19 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-require('moment/locale/es.js');
+require('moment/locale/es.js'); //We use moment locale library to manage the time in the calendar
+
 
 _moment.default.locale('es');
 
 var localizer = (0, _reactBigCalendar.momentLocalizer)(_moment.default);
+/**
+
+ * This class renders the calendar component
+
+ * we use Ract Big Calendar library for the calendar
+
+ */
 
 var Calendario = /*#__PURE__*/function (_Component) {
   _inherits(Calendario, _Component);
@@ -83,16 +91,33 @@ var Calendario = /*#__PURE__*/function (_Component) {
     };
     return _this;
   }
+  /**
+
+   * We use this function to convert the date in a format that the calendar needs to display it
+
+   * @param date as a date as a string
+
+   * @returns a date converted
+
+   */
+
 
   _createClass(Calendario, [{
     key: "componentDidMount",
+
+    /**
+
+     * We use componentDidMount() to render the task that we get from the database
+
+     */
     value: function componentDidMount() {
       var _this2 = this;
 
-      var currentUser = _auth.default.getCurrentUser();
+      //We get the current user
+      var currentUser = _auth.default.getCurrentUser(); //Then we get its id
 
-      var id = currentUser.id;
-      console.log(id);
+
+      var id = currentUser.id; //We make the axios call
 
       _axios.default.get("https://emotionner.herokuapp.com/users/tasks/".concat(id)).then(function (response) {
         var aux = response.data.tasks.tasks; //We filter through enabled tasks only
@@ -102,17 +127,15 @@ var Calendario = /*#__PURE__*/function (_Component) {
         });
 
         for (var i = 0; i < appointments.length; i++) {
-          //Convertimos a formato date
+          //We convert each date that the database returns as a string to a date 
           appointments[i].start = _this2.convertDate(appointments[i].start);
-          var dias = 1; // Número de días a agregar
+          var dias = 1; // Number of days to add
 
           appointments[i].start.setDate(appointments[i].start.getDate() + dias);
           appointments[i].end = _this2.convertDate(appointments[i].end);
           appointments[i].end.setDate(appointments[i].end.getDate() + dias);
-        }
+        } //Then we update the state with the task in the database
 
-        console.log('DESPUES');
-        console.log(appointments);
 
         _this2.setState({
           tasks: appointments
@@ -124,8 +147,15 @@ var Calendario = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var tasks = this.state.tasks;
-      var date = (0, _moment.default)(_moment.default.now()).format("YYYY-MM-DD");
+      /**
+
+       * Here we desplay the notifications 
+
+       */
+      //We get the tasks in the state
+      var tasks = this.state.tasks; //We get the current date
+
+      var date = (0, _moment.default)(_moment.default.now()).format("YYYY-MM-DD"); //We show the notification if the task date match the current date
 
       for (var i = 0; i < tasks.length; i++) {
         if ((0, _moment.default)(tasks[i].start).format("YYYY-MM-DD") === date && tasks[i].enabled === 1 && tasks[i].completed === false) {
@@ -150,7 +180,24 @@ var Calendario = /*#__PURE__*/function (_Component) {
         },
         onSelectSlot: this.handleSelect,
         dayLayoutAlgorithm: this.state.dayLayoutAlgorithm,
-        defaultDate: new Date()
+        defaultDate: new Date(),
+        eventPropGetter: function eventPropGetter(event) {
+          var newStyle = {
+            backgroundColor: "#d7ade996",
+            color: 'black',
+            borderRadius: "0px",
+            border: "none"
+          };
+
+          if (event.completed) {
+            newStyle.backgroundColor = "#EFE7F3";
+          }
+
+          return {
+            className: "",
+            style: newStyle
+          };
+        }
       }), /*#__PURE__*/_react.default.createElement(_reactNotifications.NotificationContainer, null));
     }
   }]);

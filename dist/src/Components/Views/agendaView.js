@@ -25,6 +25,8 @@ var _taskQuote = _interopRequireDefault(require("../Elements/taskQuote"));
 
 require("./../../App.css");
 
+var _navbar = _interopRequireDefault(require("../Elements/navbar"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -70,6 +72,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /**
 
  * Agenda View where all agenda components are called
+
+ * We render the task tables and the add a Task Button
 
  */
 var agendaView = /*#__PURE__*/function (_Component) {
@@ -133,16 +137,17 @@ var agendaView = /*#__PURE__*/function (_Component) {
 
      * GetItems()
 
-     * @returns tasks in the database
+     * @return tasks in the database
 
      */
     value: function getItems() {
       var _this2 = this;
 
-      var currentUser = _auth.default.getCurrentUser();
+      //We get the current user
+      var currentUser = _auth.default.getCurrentUser(); //We get its id
 
-      var id = currentUser.id;
-      console.log(id); //Axios call
+
+      var id = currentUser.id; //Then we execute the axios call to the API
 
       _axios.default.get("https://emotionner.herokuapp.com/users/tasks/".concat(id)).then(function (response) {
         var aux = response.data.tasks.tasks; //We filter through enabled tasks only
@@ -162,6 +167,8 @@ var agendaView = /*#__PURE__*/function (_Component) {
 
      * Adds a new item to the state of the component
 
+     * @param item as an object of a task
+
      */
 
   }, {
@@ -172,7 +179,7 @@ var agendaView = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_taskHero.default, null), /*#__PURE__*/_react.default.createElement(_reactstrap.Container, {
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_navbar.default, null), /*#__PURE__*/_react.default.createElement(_taskHero.default, null), /*#__PURE__*/_react.default.createElement(_reactstrap.Container, {
         className: "container",
         style: {
           marginBottom: '20px'

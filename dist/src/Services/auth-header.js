@@ -7,7 +7,9 @@ exports.default = authHeader;
 
 /**
 
- * Header for authentications in the backend
+ * Header authentication function, we use this function to get the access token of a 
+
+ * user
 
  */
 function authHeader() {

@@ -43,6 +43,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+/**
+
+ * Emotions modal component
+
+ */
 var ModalFormE = /*#__PURE__*/function (_Component) {
   _inherits(ModalFormE, _Component);
 
@@ -68,6 +73,12 @@ var ModalFormE = /*#__PURE__*/function (_Component) {
     };
     return _this;
   }
+  /**
+
+    * Function to manage the state of the modal
+
+   */
+
 
   _createClass(ModalFormE, [{
     key: "render",

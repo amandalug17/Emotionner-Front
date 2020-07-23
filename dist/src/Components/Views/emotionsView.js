@@ -23,6 +23,8 @@ var _quote = _interopRequireDefault(require("../Elements/quote"));
 
 var _emotionsHero = _interopRequireDefault(require("../Elements/emotionsHero"));
 
+var _navbar = _interopRequireDefault(require("../Elements/navbar"));
+
 require("./../../App.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -69,7 +71,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
 
- * Emotions View where all agenda components are called
+ * Emotions View where all agenda components are called we return the Emotions Table and the button 
+
+ * to add a new emotions
 
  */
 var emotionsView = /*#__PURE__*/function (_Component) {
@@ -123,20 +127,19 @@ var emotionsView = /*#__PURE__*/function (_Component) {
 
      * GetItems()
 
-     * @returns emotions in the database
+     * @return emotions in the database
 
      */
     value: function getItems() {
       var _this2 = this;
 
-      var currentUser = _auth.default.getCurrentUser();
+      //We get the current user
+      var currentUser = _auth.default.getCurrentUser(); //We get its id
 
-      var id = currentUser.id;
-      console.log(id); //Axios call
+
+      var id = currentUser.id; //Then we execute the axios call to the API
 
       _axios.default.get("https://emotionner.herokuapp.com/users/registeredEmotions/".concat(id)).then(function (response) {
-        console.log('ANTES');
-        console.log(response.data);
         var appointments = response.data;
 
         _this2.setState({
@@ -160,7 +163,7 @@ var emotionsView = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_emotionsHero.default, null), /*#__PURE__*/_react.default.createElement(_reactstrap.Container, {
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_navbar.default, null), /*#__PURE__*/_react.default.createElement(_emotionsHero.default, null), /*#__PURE__*/_react.default.createElement(_reactstrap.Container, {
         className: "container",
         style: {
           marginBottom: '20px'

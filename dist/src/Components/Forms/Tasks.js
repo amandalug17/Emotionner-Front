@@ -131,7 +131,6 @@ var Task = function Task() {
     var currentUser = _auth.default.getCurrentUser();
 
     var userId = currentUser.id;
-    var dias = 1; // Número de días a agregar
 
     if (title === "") {
       alert("Porfavor ingrese todos los campos requeridos");

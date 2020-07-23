@@ -21,6 +21,8 @@ var _auth = _interopRequireDefault(require("../../Services/auth.service"));
 
 var _reactstrap = require("reactstrap");
 
+var _navbarOutside = _interopRequireDefault(require("../Elements/navbarOutside"));
+
 require("./../../App.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -41,6 +43,13 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+/**
+
+ * Validation function for react validators, returns if the input is null
+
+ * @param {*} value 
+
+ */
 var required = function required(value) {
   if (!value) {
     return /*#__PURE__*/_react.default.createElement("div", {
@@ -49,6 +58,12 @@ var required = function required(value) {
     }, "Este campo es requerido!");
   }
 };
+/**
+
+ * Login hook component
+
+ */
+
 
 var Login = function Login(props) {
   var form = (0, _react.useRef)();
@@ -73,6 +88,14 @@ var Login = function Login(props) {
       _useState8 = _slicedToArray(_useState7, 2),
       message = _useState8[0],
       setMessage = _useState8[1];
+  /**
+
+   * OnChange functions for validating changes in inputs
+
+   * @param {*} e 
+
+   */
+
 
   var onChangeEmail = function onChangeEmail(e) {
     var email = e.target.value;
@@ -83,15 +106,25 @@ var Login = function Login(props) {
     var password = e.target.value;
     setPassword(password);
   };
+  /**
+
+   * Hnadle login function when user submits the form
+
+   * @param {*} e 
+
+   */
+
 
   var handleLogin = function handleLogin(e) {
     e.preventDefault();
     setMessage("");
     setLoading(true);
-    form.current.validateAll();
+    form.current.validateAll(); //If all the values are validated
 
     if (checkBtn.current.context._errors.length === 0) {
+      //We call the auth service method
       _auth.default.login(email, password).then(function () {
+        //If the user is correct we push to the user profile
         props.history.push("/profile");
         window.location.reload();
       }, function (error) {
@@ -104,7 +137,7 @@ var Login = function Login(props) {
     }
   };
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_navbarOutside.default, null), /*#__PURE__*/_react.default.createElement("div", {
     className: "blanco"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
@@ -144,7 +177,7 @@ var Login = function Login(props) {
     disabled: loading
   }, loading && /*#__PURE__*/_react.default.createElement("span", {
     className: "spinner-border spinner-border-sm"
-  }), /*#__PURE__*/_react.default.createElement("span", null, "Iniciar Sesi\xF3n")))), message && /*#__PURE__*/_react.default.createElement("div", {
+  }), "Iniciar Sesi\xF3n"))), message && /*#__PURE__*/_react.default.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "alert alert-danger",

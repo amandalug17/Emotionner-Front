@@ -11,6 +11,19 @@ require("./../../App.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+
+ * Imports
+
+ */
+
+/**
+
+ *This renders the footer fot the inside 
+
+ *
+
+ */
 var Footer = function Footer(props) {
   return /*#__PURE__*/_react.default.createElement("footer", {
     className: "site-footer"

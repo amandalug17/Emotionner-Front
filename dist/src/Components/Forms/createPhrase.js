@@ -47,6 +47,11 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+/**
+
+ * This class is the create phrase component in the administrator view
+
+ */
 var CreatePhrase = /*#__PURE__*/function (_Component) {
   _inherits(CreatePhrase, _Component);
 
@@ -76,15 +81,13 @@ var CreatePhrase = /*#__PURE__*/function (_Component) {
         className: "card card-signin my-5"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "card-body"
-      }, /*#__PURE__*/_react.default.createElement("div", {
-        className: "form-icon"
-      }, /*#__PURE__*/_react.default.createElement("span", null, /*#__PURE__*/_react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-        icon: _freeSolidSvgIcons.faPenFancy
-      }))), /*#__PURE__*/_react.default.createElement("h5", {
+      }, /*#__PURE__*/_react.default.createElement("h5", {
         className: "card-title text-center text-uppercase"
-      }, "Sube una frase"), /*#__PURE__*/_react.default.createElement(_reactstrap.Form, {
+      }, "CREAR FRASE"), /*#__PURE__*/_react.default.createElement(_reactstrap.Form, {
         className: "form-singin"
-      }, /*#__PURE__*/_react.default.createElement(_reactstrap.FormGroup, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Label, null, "Frase"), /*#__PURE__*/_react.default.createElement(_reactstrap.Input, {
+      }, /*#__PURE__*/_react.default.createElement(_reactstrap.FormGroup, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Label, {
+        className: "art-label"
+      }, "FRASE"), /*#__PURE__*/_react.default.createElement(_reactstrap.Input, {
         className: "form-control",
         type: "title",
         placeholder: "Introduzca una frase ",
@@ -94,7 +97,9 @@ var CreatePhrase = /*#__PURE__*/function (_Component) {
             campPhrase: value.target.value
           });
         }
-      })), /*#__PURE__*/_react.default.createElement(_reactstrap.FormGroup, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Label, null, "\xC1nimo"), /*#__PURE__*/_react.default.createElement(_reactstrap.Input, {
+      })), /*#__PURE__*/_react.default.createElement(_reactstrap.FormGroup, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Label, {
+        className: "art-label"
+      }, "\xC1NIMO"), /*#__PURE__*/_react.default.createElement(_reactstrap.Input, {
         type: "select",
         id: "exampleCustomSelect",
         name: "customSelect",
@@ -110,55 +115,68 @@ var CreatePhrase = /*#__PURE__*/function (_Component) {
         className: "form-group"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "d-flex justify-content-center"
-      }, /*#__PURE__*/_react.default.createElement("button", {
-        className: "btn btn-md text-uppercase btn-light ",
-        type: "button",
-        style: {
-          backgroundColor: '#b79ced'
-        },
+      }, /*#__PURE__*/_react.default.createElement("a", {
+        className: "anim",
         onClick: function onClick() {
           return _this2.sendSave();
         }
-      }, "Guardar art\xEDculo")))))))));
+      }, /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("span", null), "Guardar frase")))))))));
     }
+    /**
+
+       * This function is to submit our phrase to the db, on click on the submit button on the form
+
+       */
+
   }, {
     key: "sendSave",
     value: function sendSave() {
+      /**
+
+       * Validations
+
+       */
       if (this.state.campPhrase == "") {
         alert("Introduzca una frase");
       } else if (this.state.campEmotion === "") {
         alert("Introduzca una emoción asociada al artículo");
-      } else if (this.state.campEmotion === "Feliz") {
-        this.state.campEmotion = 1;
-      } else if (this.state.campEmotion === "Bien") {
-        this.state.campEmotion = 11;
-      } else if (this.state.campEmotion === "Triste") {
-        this.state.campEmotion = 21;
-      } else if (this.state.campEmotion === "Enojado") {
-        this.state.campEmotion = 31;
-      } else if (this.state.campEmotion === "Ansioso") {
-        this.state.campEmotion = 41;
-      } else if (this.state.campEmotion === "Estresado") {
-        this.state.campEmotion = 51;
-      } else {
-        var baseUrl = "https://emotionner.herokuapp.com/articles/createArticle";
-        var datapost = {
-          phrase: this.state.campPhrase,
-          emotionId: this.state.campEmotion
-        };
-        console.log(datapost);
+      } //Emotion cast to the equivalent id
+      else if (this.state.campEmotion === "Feliz") {
+          this.state.campEmotion = 1;
+        } else if (this.state.campEmotion === "Bien") {
+          this.state.campEmotion = 11;
+        } else if (this.state.campEmotion === "Triste") {
+          this.state.campEmotion = 21;
+        } else if (this.state.campEmotion === "Enojado") {
+          this.state.campEmotion = 31;
+        } else if (this.state.campEmotion === "Ansioso") {
+          this.state.campEmotion = 41;
+        } else if (this.state.campEmotion === "Estresado") {
+          this.state.campEmotion = 51;
+        } else {
+          // If the info is valid
+          var baseUrl = "https://emotionner.herokuapp.com/phrases/createPhrase";
+          var datapost = {
+            phrase: this.state.campPhrase,
+            emotionId: this.state.campEmotion
+          };
+          /**
 
-        _axios.default.post(baseUrl, datapost).then(function (response) {
-          if (response.data.success === true) {
-            alert(response.data.message);
-            window.location.reload();
-          } else {
-            alert(response.data.message);
-          }
-        }).catch(function (error) {
-          alert("" + error);
-        });
-      }
+            * Axios call to create an phrase
+
+            */
+
+          _axios.default.post(baseUrl, datapost).then(function (response) {
+            if (response.data.success === true) {
+              alert(response.data.message);
+              window.location.reload();
+            } else {
+              alert(response.data.message);
+            }
+          }).catch(function (error) {
+            alert("" + error);
+          });
+        }
     }
   }]);
 

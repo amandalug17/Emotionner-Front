@@ -9,8 +9,15 @@ var _react = _interopRequireDefault(require("react"));
 
 require("./../../App.css");
 
+var _auth = _interopRequireDefault(require("./../../Services/auth.service"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+
+ * This is the admin side bar component
+
+ */
 var Sidebar_ = function Sidebar_(props) {
   var $button = document.querySelector('#sidebar-toggle');
   var $wrapper = document.querySelector('#wrapper');
@@ -21,6 +28,18 @@ var Sidebar_ = function Sidebar_(props) {
       $wrapper.classList.toggle('toggled');
     });
   }
+  /**
+
+  * This is the fuction to logout of the app, onClick, we call the function from authService logout 
+
+  * that removes the current user from the locale storage of the browser
+
+  */
+
+
+  var logOut = function logOut() {
+    _auth.default.logoutA();
+  };
 
   return /*#__PURE__*/_react.default.createElement("div", {
     id: "wrapper"
@@ -31,7 +50,7 @@ var Sidebar_ = function Sidebar_(props) {
   }, /*#__PURE__*/_react.default.createElement("h2", null, "Emotionner")), /*#__PURE__*/_react.default.createElement("ul", {
     className: "sidebar-nav"
   }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("a", {
-    href: "#"
+    href: "/admin/dashboard"
   }, /*#__PURE__*/_react.default.createElement("i", {
     className: "fa fa-home",
     style: {
@@ -58,7 +77,8 @@ var Sidebar_ = function Sidebar_(props) {
       marginRight: '20px'
     }
   }), "Frases")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("a", {
-    href: "/"
+    href: "/",
+    onClick: logOut
   }, /*#__PURE__*/_react.default.createElement("i", {
     className: "fa fa-user",
     style: {

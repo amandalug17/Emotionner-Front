@@ -33,6 +33,11 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+/**
+
+ * This is the navbar component
+
+ */
 var Navbar_ = function Navbar_(props) {
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -51,10 +56,23 @@ var Navbar_ = function Navbar_(props) {
       setCurrentUser(user);
     }
   }, []);
+  /**
+
+   * This is the fuction to logout of the app, onClick, we call the function from authService logout 
+
+   * that removes the current user from the locale storage of the browser
+
+   */
 
   var logOut = function logOut() {
     _auth.default.logout();
   };
+  /**
+
+   * Function to toggle the navbar , we set the state to false
+
+   */
+
 
   var toggle = function toggle() {
     return setIsOpen(!isOpen);
@@ -71,7 +89,7 @@ var Navbar_ = function Navbar_(props) {
   }), /*#__PURE__*/_react.default.createElement(_reactstrap.Collapse, {
     isOpen: isOpen,
     navbar: true
-  }, currentUser ? /*#__PURE__*/_react.default.createElement(_reactstrap.Nav, {
+  }, /*#__PURE__*/_react.default.createElement(_reactstrap.Nav, {
     className: "mr-auto",
     navbar: true
   }, /*#__PURE__*/_react.default.createElement(_reactstrap.NavItem, null, /*#__PURE__*/_react.default.createElement(_reactstrap.NavLink, {
@@ -83,6 +101,8 @@ var Navbar_ = function Navbar_(props) {
   }, "Mi Mood Journal")), /*#__PURE__*/_react.default.createElement(_reactstrap.NavItem, null, /*#__PURE__*/_react.default.createElement(_reactstrap.NavLink, {
     href: "/articles"
   }, "Articulos")), /*#__PURE__*/_react.default.createElement(_reactstrap.NavItem, null, /*#__PURE__*/_react.default.createElement(_reactstrap.NavLink, {
+    href: "/stats"
+  }, "Estad\xEDsticas")), /*#__PURE__*/_react.default.createElement(_reactstrap.NavItem, null, /*#__PURE__*/_react.default.createElement(_reactstrap.NavLink, {
     href: "/",
     type: "button",
     style: ({
@@ -94,14 +114,7 @@ var Navbar_ = function Navbar_(props) {
     onClick: logOut
   }, /*#__PURE__*/_react.default.createElement("i", {
     className: "fa fa-user"
-  }), "   Cerrar Sesi\xF3n"))) : /*#__PURE__*/_react.default.createElement(_reactstrap.Nav, {
-    className: "mr-auto",
-    navbar: true
-  }, /*#__PURE__*/_react.default.createElement(_reactstrap.NavItem, null, /*#__PURE__*/_react.default.createElement(_reactstrap.NavLink, {
-    href: "/login"
-  }, "Iniciar Sesion")), /*#__PURE__*/_react.default.createElement(_reactstrap.NavItem, null, /*#__PURE__*/_react.default.createElement(_reactstrap.NavLink, {
-    href: "/singup"
-  }, "Registrate"))))));
+  }), "   Cerrar Sesi\xF3n"))))));
 };
 
 var _default = Navbar_;

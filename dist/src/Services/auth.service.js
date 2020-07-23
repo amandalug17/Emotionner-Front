@@ -11,26 +11,37 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /**
 
- * API Calls methods with AXIOS
+ * Import axios for API calls
 
  */
 
 /**
 
- * API URL
+ * our API URL
 
  */
-var API_URL = "https://emotionner.herokuapp.com/"; //const API_URL = "http://localhost:8080/";
-
+var API_URL = "https://emotionner.herokuapp.com/";
 /**
 
- * Registration method
+ * Registration method, we use this function to register a new user in out db
 
- * @param {*} username 
+* we use a post method from axios to the back 
 
- * @param {*} email 
+ * @param {*} name as string
 
- * @param {*} password 
+ * @param {*} lastname  as string
+
+ * @param {*} email  as string
+
+ * @param {*} birthdate  as string
+
+ * @param {*} ocupation as sting
+
+ * @param {*} premium as boolean
+
+ * @param {*} password  as sting
+
+ * @returns response of the post method
 
  */
 
@@ -47,13 +58,13 @@ var register = function register(name, lastname, email, birthdate, ocupation, pr
 };
 /**
 
- * Login method
+ * Login method, we do a post method to de db
 
- * @param {*} username 
+ * @param {*} email as string
 
- * @param {*} password 
+ * @param {*} password as string
 
- * @returns userdata
+ * @returns response data from axios 
 
  */
 
@@ -72,7 +83,44 @@ var login = function login(email, password) {
 };
 /**
 
- * Logout method
+ * Login method admin, we do a post method to de db, if the user returned by the db has the
+
+ * admin role we store it in the web storage
+
+ * @param {*} email as string
+
+ * @param {*} password as string
+
+ * @returns response data from axios 
+
+ */
+
+
+var loginA = function loginA(email, password) {
+  return _axios.default.post(API_URL + "users/signin", {
+    email: email,
+    password: password
+  }).then(function (response) {
+    if (response.data.accessToken && response.data.roles[0] === "ROLE_ADMIN") {
+      localStorage.setItem("admin", JSON.stringify(response.data));
+    }
+
+    return response.data;
+  });
+};
+/**
+
+ * Logout method, we remove the item user from the local storage
+
+ */
+
+
+var logoutA = function logoutA() {
+  localStorage.removeItem("admin");
+};
+/**
+
+ * Logout method, we remove the item user from the local storage
 
  */
 
@@ -82,7 +130,7 @@ var logout = function logout() {
 };
 /**
 
- * Get current user method
+ * Get current user method, we return the item user that we stored in the browser
 
  */
 
@@ -90,8 +138,42 @@ var logout = function logout() {
 var getCurrentUser = function getCurrentUser() {
   return JSON.parse(localStorage.getItem("user"));
 };
+/**
+
+ * We validate if there is a current user logged
+
+ * @param {*} user as an instance of user object
+
+ */
+
 
 var isAuth = function isAuth(user) {
+  if (user) {
+    return true;
+  } else {
+    return false;
+  }
+};
+/**
+
+ * Get current admin method, we return the item admin that we stored in the browser
+
+ */
+
+
+var getCurrentAdmin = function getCurrentAdmin() {
+  return JSON.parse(localStorage.getItem("admin"));
+};
+/**
+
+ * We validate if there is a current user logged
+
+ * @param {*} user as an instance of user object
+
+ */
+
+
+var isAdmin = function isAdmin(user) {
   if (user) {
     return true;
   } else {
@@ -104,7 +186,11 @@ var _default = {
   login: login,
   logout: logout,
   getCurrentUser: getCurrentUser,
-  isAuth: isAuth
+  isAuth: isAuth,
+  loginA: loginA,
+  logoutA: logoutA,
+  isAdmin: isAdmin,
+  getCurrentAdmin: getCurrentAdmin
 };
 exports.default = _default;
 

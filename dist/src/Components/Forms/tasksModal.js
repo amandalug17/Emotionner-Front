@@ -92,6 +92,16 @@ var ModalForm = /*#__PURE__*/function (_Component) {
           onClick: this.toggle,
           title: "Editar"
         }, label)));
+      } else if (label === " ") {
+        {
+          console.log('entra');
+        }
+        button = /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("a", {
+          className: "link",
+          style: {
+            textTransform: 'uppercase'
+          }
+        })));
       } else {
         button = /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
           className: "buttonArrow",

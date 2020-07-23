@@ -11,7 +11,6 @@ var _authHeader = _interopRequireDefault(require("./auth-header"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//const API_URL = "http://localhost:8080/";
 var API_URL = "https://emotionner.herokuapp.com/";
 
 var getUserTasks = function getUserTasks(id) {
@@ -19,8 +18,6 @@ var getUserTasks = function getUserTasks(id) {
     return res.json();
   }).then(function (t) {
     var tareas = t.tasks.tasks;
-    console.log(Array.isArray(tareas));
-    console.log('Tareas:' + tareas);
     return tareas;
   }).catch(function (err) {
     console.error(err);

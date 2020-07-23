@@ -9,13 +9,17 @@ var _reactstrap = require("reactstrap");
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactRouter = require("react-router");
-
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 
 require("./../../App.css");
+
+var _footerOutside = _interopRequireDefault(require("../Elements/footerOutside"));
+
+var _auth = _interopRequireDefault(require("./../../Services/auth.service"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
@@ -49,14 +53,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var admins = [{
-  username: 'admin',
-  campPassword: 'admin'
-}, {
-  username: 'admin2',
-  campPassword: '1234'
-}];
+/**
 
+ * Login admin componet 
+
+ */
 var LoginAdminForm = /*#__PURE__*/function (_Component) {
   _inherits(LoginAdminForm, _Component);
 
@@ -84,36 +85,58 @@ var LoginAdminForm = /*#__PURE__*/function (_Component) {
     };
     return _this;
   }
+  /**
+
+   * Handle change made in the form
+
+   * @param {*} e as a event 
+
+   */
+
 
   _createClass(LoginAdminForm, [{
     key: "singIn",
+
+    /**
+
+     * Singin method, when the user clicks the button on the form 
+
+     */
     value: function singIn() {
       var _this2 = this;
 
+      /**
+
+       * Validations
+
+       */
       if (this.state.username === "") {
         alert("Introduzca su usuario");
       } else if (this.state.campPassword === "") {
         alert("La contraseña ingresada no es valida");
       } else {
-        console.log(this.state);
-        var user = admins.find(function (x) {
-          return x.username === _this2.state.username && x.campPassword === _this2.state.campPassword;
-        });
-        console.log(user);
+        //If the info is valid
+        //We call the authService function to validate the data
+        _auth.default.loginA(this.state.username, this.state.campPassword).then(function () {
+          // if is valid
+          _this2.redirect(); // we redirect the user
 
-        if (!user) {
-          console.log("Los datos ingresados no son validos");
-          alert("Los datos ingresados no son validos");
-        } else {
-          console.log("Los datos ingresados son validos");
-          this.redirect();
-        }
+        }, function (error) {
+          var resMessage = error.response && error.response.data && error.response.data.message || error.message || error.toString();
+          alert(resMessage);
+        });
       }
     }
+    /**
+
+     * Function to redirect to the admin view
+
+     */
+
   }, {
     key: "redirect",
     value: function redirect() {
-      var link = window.location.href + '/create';
+      var link = window.location.href + '/dashboard';
       console.log(link);
       return window.location.replace(link);
     }
@@ -122,8 +145,8 @@ var LoginAdminForm = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      return /*#__PURE__*/_react.default.createElement("div", {
-        className: "container"
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+        className: "blanco"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "row "
       }, /*#__PURE__*/_react.default.createElement("div", {
@@ -140,9 +163,11 @@ var LoginAdminForm = /*#__PURE__*/function (_Component) {
         className: "card-title text-center text-uppercase"
       }, "Bienvenido Administrador"), /*#__PURE__*/_react.default.createElement(_reactstrap.Form, {
         className: "form-singin"
-      }, /*#__PURE__*/_react.default.createElement(_reactstrap.FormGroup, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Label, null, "Username"), /*#__PURE__*/_react.default.createElement(_reactstrap.Input, {
+      }, /*#__PURE__*/_react.default.createElement(_reactstrap.FormGroup, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Label, {
+        className: "art-label"
+      }, "Email"), /*#__PURE__*/_react.default.createElement(_reactstrap.Input, {
         className: "form-control",
-        type: "text",
+        type: "email",
         value: this.state.username,
         onChange: function onChange(value) {
           return _this3.setState({
@@ -150,9 +175,11 @@ var LoginAdminForm = /*#__PURE__*/function (_Component) {
           });
         },
         placeholder: "Introduzca su usuario "
-      })), /*#__PURE__*/_react.default.createElement(_reactstrap.FormGroup, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Label, null, "Contrase\xF1a"), /*#__PURE__*/_react.default.createElement(_reactstrap.Input, {
+      })), /*#__PURE__*/_react.default.createElement(_reactstrap.FormGroup, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Label, {
+        className: "art-label"
+      }, "Contrase\xF1a"), /*#__PURE__*/_react.default.createElement(_reactstrap.Input, {
         className: "form-control",
-        type: "text",
+        type: "password",
         value: this.state.campPassword,
         onChange: function onChange(value) {
           return _this3.setState({
@@ -168,14 +195,10 @@ var LoginAdminForm = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
         className: "btn btn-lg btn-block text-uppercase btn-light",
-        style: {
-          backgroundColor: '#b79ced',
-          padding: '5px'
-        },
         onClick: function onClick() {
           return _this3.singIn();
         }
-      }, "Iniciar Sesi\xF3n"))))))));
+      }, "Iniciar Sesi\xF3n")))))))), /*#__PURE__*/_react.default.createElement(_footerOutside.default, null));
     }
   }]);
 

@@ -35,12 +35,23 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+/**
+
+ * This are the const to navigate the dates in the libary
+
+ */
 var navigateContants = {
   PREVIOUS: 'PREV',
   NEXT: 'NEXT',
   TODAY: 'TODAY',
   DATE: 'DATE'
 };
+/**
+
+ * This are the const to change the view of tha calendar
+
+ */
+
 exports.navigateContants = navigateContants;
 var views = {
   MONTH: 'month',
@@ -49,6 +60,12 @@ var views = {
   DAY: 'day',
   AGENDA: 'agenda'
 };
+/**
+
+ * We created a custom responsive toolbar for the calendar
+
+ */
+
 exports.views = views;
 
 var CalendarToolbar = /*#__PURE__*/function (_Toolbar) {

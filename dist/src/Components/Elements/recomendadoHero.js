@@ -11,6 +11,11 @@ require("./../../App.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+
+ * This is a hero element
+
+ */
 var RecoHero = function RecoHero() {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     className: "hero-nav"

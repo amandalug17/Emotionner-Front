@@ -17,6 +17,8 @@ var _articleF = _interopRequireDefault(require("../Forms/articleF"));
 
 var _PhraseF = _interopRequireDefault(require("../Forms/PhraseF"));
 
+var _navbar = _interopRequireDefault(require("../Elements/navbar"));
+
 require("./../../App.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -47,6 +49,13 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+/**
+
+ * This class renders the recomendatiosn view, we render the articles based in user emotions
+
+ * and the motivational phrase component.
+
+ */
 var RecomendationView = /*#__PURE__*/function (_Component) {
   _inherits(RecomendationView, _Component);
 
@@ -61,7 +70,7 @@ var RecomendationView = /*#__PURE__*/function (_Component) {
   _createClass(RecomendationView, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_recomendadoHero.default, null), /*#__PURE__*/_react.default.createElement(_reactstrap.Container, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Col, null, /*#__PURE__*/_react.default.createElement("h1", {
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_navbar.default, null), /*#__PURE__*/_react.default.createElement(_recomendadoHero.default, null), /*#__PURE__*/_react.default.createElement(_reactstrap.Container, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactstrap.Col, null, /*#__PURE__*/_react.default.createElement("h1", {
         className: "d-flex justify-content-center",
         style: {
           margin: "20px",

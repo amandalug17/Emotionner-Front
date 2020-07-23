@@ -1,0 +1,195 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+
+
+.hero-nav {
+
+  position: relative;
+
+  top: 0;
+
+  right: 0;
+
+  bottom: 0;
+
+  left: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 400px;
+
+  min-height: 105px;
+
+  background-image: url(https://images.pexels.com/photos/2114014/pexels-photo-2114014.jpeg?cs=srgb&dl=white-clouds-2114014.jpg&fm=jpg);
+
+  background-size: cover;
+
+  background-position: center;
+
+}
+
+
+
+.hero-nav-task {
+
+  position: relative;
+
+  top: 0;
+
+  right: 0;
+
+  bottom: 0;
+
+  left: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 400px;
+
+  min-height: 105px;
+
+  background-image: url(https://images.pexels.com/photos/7277/sunset-water-clouds-lake.jpg?cs=srgb&dl=lake-stars-sky-evening-7277.jpg&fm=jpg);
+
+  background-size: cover;
+
+  background-position: center;
+
+}
+
+
+
+.hero-nav-stats {
+
+  position: relative;
+
+  top: 0;
+
+  right: 0;
+
+  bottom: 0;
+
+  left: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 400px;
+
+  min-height: 105px;
+
+  background-image: url(https://img.wallpapersafari.com/desktop/1680/1050/5/58/4EMq7k.jpg);
+
+  background-size: cover;
+
+  background-position: center;
+
+}
+
+
+
+.hero-nav__r{
+
+  position: relative;
+
+  top: 0;
+
+  right: 0;
+
+  bottom: 0;
+
+  left: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 400px;
+
+  width: 100% !important;
+
+  min-height: 105px;
+
+  background-image: url(https://live.staticflickr.com/458/19620177311_fcbdb9776a_b.jpg);
+
+  background-size: cover;
+
+  background-position: center;
+
+}
+
+
+
+.hero-nav .hero-nav__inner, .hero-nav-task .hero-nav__inner .hero-nav__r {
+
+  z-index: 1;
+
+}
+
+
+
+.hero-nav h1, .hero-nav-task h1, .hero-nav__r h1, .hero-nav-stats h1{
+
+  color: #f8f6f6;
+
+  letter-spacing: 3px;
+
+  font-size: 5vw;
+
+}
+
+
+
+.hero-nav:before {
+
+  content: "";
+
+  background: rgba(0, 0, 0, 0);
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  right: 0;
+
+  bottom: 0;
+
+  transition: background 400ms;
+
+}
+
+
+
+.hero-nav.fixme:before .hero-nav-task.fixme:before{
+
+  background: rgba(0, 0, 0, 0.8);
+
+}
+
+
+
+.page-content {
+
+  width: 30em;
+
+  margin: 0 auto;
+
+  line-height: 1.625;
+
+}
