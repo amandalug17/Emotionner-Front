@@ -9,6 +9,7 @@
 @import "./Styles/tables.css";
 @import "./Styles/hero.css";
 @import "./Styles/modals.css";
+@import "./Styles/sidebar.css";
 
 
 /* BODY */
@@ -92,4 +93,14 @@ section{
 
 ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+
+/*NAVBAR TOGGLE*/
+@media (max-width:500px){
+  .navbar-toggler {
+    padding-top: 0;
+  }
+  .navbar-toggler .navbar-toggler-icon{
+    font-size: 0.9rem;
+  }
 }

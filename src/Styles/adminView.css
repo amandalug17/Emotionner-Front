@@ -216,3 +216,9 @@
     height:140px;
     width: 140px;
 }
+
+@media (max-width:500px){
+    .welcome h1{
+        margin-left: 45px;
+    }
+}

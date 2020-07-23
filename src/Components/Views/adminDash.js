@@ -39,6 +39,7 @@ class adminDashboard extends Component{
                    <a href="/admin/AllArticles" className="btn btn--opacity homepagebutton ">Mostrar Más</a>
                 </Col>
             </Row>
+            <br/>
             <Row>
             <Col className = 'd-flex justify-content-end'>
                 <div className = "buttonArrow">
@@ -61,6 +62,7 @@ class adminDashboard extends Component{
                    <a href="/admin/AllPhrases" className="btn btn--opacity homepagebutton ">Mostrar Más</a>
                 </Col>
             </Row>
+            <br/>
             <Row>
             <Col className = 'd-flex justify-content-end'>
                 <div className = "buttonArrow">
