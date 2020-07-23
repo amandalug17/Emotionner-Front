@@ -1,3 +1,6 @@
+/**
+ * Imports
+ */
 import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import AuthService from '../../Services/auth.service'

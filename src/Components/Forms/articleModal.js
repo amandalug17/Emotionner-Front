@@ -1,8 +1,14 @@
+/**
+ * Imports
+ */
 import React, { Component } from 'react'
 import {  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import ArticleInfo from '../Forms/articleInfo';
 import './../../App.css'
 
+/**
+ * This is the class for the modal Info or modal for the articles
+ */
 class ModalInfo extends Component {
     constructor(props) {
         super(props)
@@ -11,6 +17,9 @@ class ModalInfo extends Component {
         }
       }
       
+      /**
+       * Function to manage the state of the modal
+       */
       toggle = () => {
         this.setState(prevState => ({
           modal: !prevState.modal
@@ -24,7 +33,7 @@ class ModalInfo extends Component {
       const label = this.props.buttonLabel
 
       let button = ''
-
+    
         button = <>
             <p className="read-more">
                 <a className="link" style={{cursor:'pointer'}} onClick={this.toggle } title='Articulo'>Leer más</a>

@@ -1,3 +1,6 @@
+/**
+ * Imports
+ */
 import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -7,6 +10,10 @@ import AuthService from "../../Services/auth.service";
 import {FormGroup} from 'reactstrap';
 import Navbar_O from "../Elements/navbarOutside";
 import './../../App.css'
+/**
+ * Validation function for react validators, returns if the input is null
+ * @param {*} value 
+ */
 const required = (value) => {
   if (!value) {
     return (
@@ -16,7 +23,9 @@ const required = (value) => {
     );
   }
 };
-
+/**
+ * Login hook component
+ */
 const Login = (props) => {
   const form = useRef();
   const checkBtn = useRef();
@@ -26,6 +35,10 @@ const Login = (props) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
+  /**
+   * OnChange functions for validating changes in inputs
+   * @param {*} e 
+   */
   const onChangeEmail = (e) => {
     const email = e.target.value;
     setEmail(email);
@@ -35,7 +48,10 @@ const Login = (props) => {
     const password = e.target.value;
     setPassword(password);
   };
-
+/**
+ * Hnadle login function when user submits the form
+ * @param {*} e 
+ */
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -43,10 +59,11 @@ const Login = (props) => {
     setLoading(true);
 
     form.current.validateAll();
-
+    //If all the values are validated
     if (checkBtn.current.context._errors.length === 0) {
+      //We call the auth service method
       AuthService.login(email, password).then(
-        () => {
+        () => {//If the user is correct we push to the user profile
           props.history.push("/profile");
           window.location.reload();
         },

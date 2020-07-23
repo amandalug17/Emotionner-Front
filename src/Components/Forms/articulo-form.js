@@ -1,10 +1,15 @@
+/**
+ * Imports
+ */
 import {Form, FormGroup, Label, Input} from 'reactstrap';
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Container, Row, Col} from 'react-bootstrap'
 import './../../App.css'
 
-
+/**
+ * This class is the create article component in the administrator view
+ */
 
 class CreateArticle extends Component{
 
@@ -99,21 +104,26 @@ class CreateArticle extends Component{
           
       )  
     }
+    /**
+     * This function is to submit our article to the db, on click on the submit button on the form
+     */
     sendSave(){
-
-        if (this.state.campTitle=="") {
+        /**
+         * Form validations
+         */
+        if (this.state.campTitle==="") {
           alert("Introduzca el título")
         }
-        else if (this.state.campDescription=="") {
+        else if (this.state.campDescription==="") {
            alert("Introduzca una descripción")
         }
-        else if (this.state.campContent=="") {
+        else if (this.state.campContent==="") {
            alert("Introduzca el contenido")
         }
-        else if (this.state.campAuthor=="") {
+        else if (this.state.campAuthor==="") {
            alert("Introduzca el autor")
         }
-        else if (this.state.campPremium=="") {
+        else if (this.state.campPremium==="") {
             alert("Introduzca el tipo de usuario en premium")
          }
         else if (this.state.campPremium==="Premium") {
@@ -124,7 +134,7 @@ class CreateArticle extends Component{
          }
          else if (this.state.campEmotion==="") {
             alert("Introduzca una emoción asociada al artículo")
-         }
+         }//Emotion cast to the equivalent id
          else if (this.state.campEmotion==="Feliz") {
             this.state.campEmotion=1
          }
@@ -142,7 +152,7 @@ class CreateArticle extends Component{
          else if (this.state.campEmotion==="Estresado") {
             this.state.campEmotion=51
          }
-        else {
+        else {// If the info is valid
           const datapost = {
             title : this.state.campTitle,
             content : this.state.campContent,
@@ -152,13 +162,13 @@ class CreateArticle extends Component{
             premium : this.state.campPremium,
             emotionId : this.state.campEmotion
           }
-
-          console.log(datapost)
-          
+          /**
+           * Axios cal to create an article
+           */
           axios.post("https://emotionner.herokuapp.com/articles/createArticle",datapost)
-          .then(response=>{
-            console.log(response)
-            
+          .then(response=>{//Then
+
+          //If the post was a success we reload the page
             if (response.data.success) {
                 alert(response.data.message)
                 window.location.reload()

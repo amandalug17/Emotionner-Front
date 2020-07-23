@@ -1,3 +1,6 @@
+/**
+ * Imports
+ */
 import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -6,7 +9,6 @@ import { isEmail } from "validator";
 import './../../App.css'
 import Footer from "../Elements/footerInside";
 import AuthService from "../../Services/auth.service";
-import { FormGroup } from "reactstrap";
 import Navbar_O from "../Elements/navbarOutside";
 /**
  * Requeried method verifies that all the fields are filled in
@@ -63,8 +65,8 @@ const Register = (props) => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [birthdate, setBirthdate] = useState("");
-  const [ocupation, setOcupation] = useState("");
-  const [premium, setPremium] = useState(false);
+  const [ocupation] = useState("");
+  const [premium] = useState(false);
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");

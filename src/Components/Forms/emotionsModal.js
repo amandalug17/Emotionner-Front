@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import {  Modal, ModalHeader, ModalBody } from 'reactstrap'
 import AddEditFormE from './emotionsEdit';
 import './../../App.css'
-
+/**
+ * Emotions modal component
+ */
 class ModalFormE extends Component {
   constructor(props) {
     super(props)
@@ -10,7 +12,9 @@ class ModalFormE extends Component {
       modal: false
     }
   }
-  
+  /**
+    * Function to manage the state of the modal
+   */
   toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal

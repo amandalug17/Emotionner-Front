@@ -1,3 +1,6 @@
+/**
+ * Imports
+ */
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { Form, FormGroup, Label, Col, Row, Input} from 'reactstrap';
@@ -55,7 +58,6 @@ const Task = () => {
     const handleRegister = () => {
       const currentUser = AuthService.getCurrentUser();
       const userId = currentUser.id;
-      var dias = 1; // Número de días a agregar
     
       if (title==="") {
         alert("Porfavor ingrese todos los campos requeridos")

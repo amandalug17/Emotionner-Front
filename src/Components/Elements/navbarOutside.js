@@ -6,18 +6,6 @@ import './../../App.css'
 const Navbar_ = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [currentUser, setCurrentUser] = useState(undefined);
-
-  useEffect(() => {
-    const user = AuthService.getCurrentUser();
-  
-
-    if (user) {
-      setCurrentUser(user);
-    }
-  }, []);
-
-  
 
   const toggle = () => setIsOpen(!isOpen);
 

@@ -1,19 +1,13 @@
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import  {Form, FormGroup, Label, Input} from 'reactstrap';
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import './../../App.css'
 import Footer from "../Elements/footerOutside";
 import AuthService  from "./../../Services/auth.service";
-
-
-let admins=[
-    {username: 'admin', campPassword:'admin'},
-    {username: 'admin2', campPassword: '1234'}
-]
-
-
-
+/**
+ * Login admin componet 
+ */
 class LoginAdminForm extends Component{
    
     constructor(props) {
@@ -26,24 +20,31 @@ class LoginAdminForm extends Component{
         }
         
     }
-    
+    /**
+     * Handle change made in the form
+     * @param {*} e as a event 
+     */
     handleChange = (e) => {
         const {name, value}= e.target;
         this.setState({... this.state, [name]: value });
     }
+    /**
+     * Singin method, when the user clicks the button on the form 
+     */
     singIn(){
+        /**
+         * Validations
+         */
         if (this.state.username==="") {
             alert("Introduzca su usuario")
           }
         else if (this.state.campPassword==="") {
               alert("La contraseña ingresada no es valida")
-        } else {
+        } else {//If the info is valid
+            //We call the authService function to validate the data
             AuthService.loginA( this.state.username, this.state.campPassword).then(
-                () => {
-                   
-                    console.log("Los datos ingresados son validos")
-                    console.log('admin')
-                    this.redirect();
+                () => { // if is valid
+                    this.redirect(); // we redirect the user
                 },
                 (error) => {
                   const resMessage =
@@ -55,10 +56,12 @@ class LoginAdminForm extends Component{
                   alert(resMessage);
                 }
               );
-            console.log(this.state)
             
         }
     }
+    /**
+     * Function to redirect to the admin view
+     */
     redirect(){
             var link = window.location.href+'/dashboard';
             console.log (link);

@@ -1,3 +1,6 @@
+/**
+ * Imports
+ */
 import React, {Component} from 'react';
 import ModalInfo from '../Forms/articleModal';
 import './../../App.css'

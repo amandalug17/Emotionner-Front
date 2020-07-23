@@ -1,11 +1,16 @@
-import {Button, CustomInput, Form, FormGroup, Label, Input, col} from 'reactstrap';
+/**
+ * Imports
+ */
+import { Form, FormGroup, Label, Input} from 'reactstrap';
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenFancy} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import {Container, Row, Col} from 'react-bootstrap'
 import './../../App.css'
-
+/**
+ * This class is the create phrase component in the administrator view
+ */
 class CreatePhrase extends Component{
 
     constructor(props){
@@ -65,15 +70,20 @@ class CreatePhrase extends Component{
             )
         
     }
-
+  /**
+     * This function is to submit our phrase to the db, on click on the submit button on the form
+     */
     sendSave(){
 
+      /**
+       * Validations
+       */
         if (this.state.campPhrase=="") {
           alert("Introduzca una frase")
         }
          else if (this.state.campEmotion==="") {
             alert("Introduzca una emoción asociada al artículo")
-         }
+         }//Emotion cast to the equivalent id
          else if (this.state.campEmotion==="Feliz") {
             this.state.campEmotion=1
          }
@@ -92,7 +102,7 @@ class CreatePhrase extends Component{
             this.state.campEmotion=51
          }
         else {
-     
+          // If the info is valid
           const baseUrl = "https://emotionner.herokuapp.com/phrases/createPhrase"
 
           const datapost = {
@@ -100,7 +110,9 @@ class CreatePhrase extends Component{
             emotionId : this.state.campEmotion
           }
 
-          console.log(datapost)
+         /**
+           * Axios call to create an phrase
+           */
           
           axios.post(baseUrl,datapost)
           .then(response=>{

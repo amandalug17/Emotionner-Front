@@ -3,7 +3,7 @@
  */
 import React, { Component} from 'react';
 //React Big Calendar Library
-import { Calendar, momentLocalizer} from 'react-big-calendar';
+import { Calendar, momentLocalizer, Views} from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import CalendarToolbar from './toolbar';

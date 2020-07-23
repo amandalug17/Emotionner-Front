@@ -1,8 +1,10 @@
+/**
+ * Imports
+ */
 import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
-import Footer from '../Elements/footerInside'
 import Phrases from '../Elements/phrases';
 import './../../App.css'
 
@@ -27,7 +29,7 @@ class PhraseView extends Component {
   getItems(){
     const currentUser = AuthService.getCurrentUser();
     const id = currentUser.id;
-    var emotionid = ''
+    
     /**
      * First we return the last emotion that the user registered 
      */
