@@ -1,11 +1,17 @@
-import React, { Component, useState} from 'react'
-import { Container, Row, Col, Label } from 'reactstrap'
+/**
+ * Imports
+ */
+import React, { Component} from 'react'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
 import './../../App.css'
 import {Line} from 'react-chartjs-2';
 
 
+/**
+ *  This class is the task per day, we can see the data of all the emotions that 
+ * an user stored in the aplication. We used the ChartJS library.
+ */
 
 class TasksPerDay extends Component {
 

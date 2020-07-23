@@ -1,26 +1,42 @@
+/**
+ * Imports
+ */
 import React, {Component} from 'react';
 import axios from 'axios'
 import {Doughnut} from 'react-chartjs-2';
 import AuthService from '../../Services/auth.service';
 
+/**
+ *  This class is the emotion Counter component, we can see the data of all the emotions that 
+ * an user stored in the aplication. We used the ChartJS library.
+ */
+
 class ECountChart extends Component{
+
     constructor(props){
         super(props);
+        //We pass the data through the state
         this.state={Data: {}};
             
     }
+    /**
+     *  We are updating the state of the component through componentDidMount()
+     */
     componentDidMount(){
+        //We need the current user and its id
         const currentUser = AuthService.getCurrentUser();
         const id = currentUser.id;
-        //Hacemos la llamada a axios para obtener las emociones registradas de un usuario
+        /**
+         * We get the data for the graphic through an axios get call
+         */
         axios.get(`https://emotionner.herokuapp.com/users/emotionCounter/${id}`)
-        .then(res=>{ //luego 
-            console.log(res);//console.log del resultado
-            const chartData = res.data.counter; //guardamos el array de objetos devuelto
-            let emotion =[] //creamos los arrays para las labels, es decir las emociones
-            let count = []//y el array de la data, es decir la cuenta de las veces que ha estado esa emocion
+        .then(res=>{ //then
+            const chartData = res.data.counter; //we store the data in an array
+            let emotion =[] //we create the array for the emotion labels
+            let count = []//and the array for the graph data info
             /**
-             * Por cada record que me responde mi llamada axios voy a guardar los datos en su array correspondiente
+             * Since the data base returns the emotions with their id we need to cast the id number to
+             * the emotion
              */
             var emotionL = ''
             chartData.forEach(record=>{
@@ -40,14 +56,14 @@ class ECountChart extends Component{
                 emotion.push(emotionL)
                 count.push(record.counter)
             });
-            //lo guardamos todo en el estado
+            //We store the info in our state
             this.setState({
                 Data:{
-                    labels: emotion,
+                    labels: emotion, //Our labels are the emotions
                     datasets: [
                         {
                             label: 'Tu contador de emociones',
-                            data: count,
+                            data: count, //Our info is the count 
                             backgroundColor: [  
                                 "rgba(120, 190, 236, 0.6)",
                                 "rgba(61, 221, 69, 0.6)",

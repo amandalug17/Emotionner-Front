@@ -1,40 +1,53 @@
+/**
+ * Imports
+ */
 import React, {Component} from 'react';
 import axios from 'axios'
 import AuthService from '../../Services/auth.service';
-
+/**
+ *  This class is the emotion of the month component, we can see the data of all the emotions that 
+ * an user stored in the aplication. We used the ChartJS library.
+ */
 
 class MothEmotion extends Component{
     constructor(props){
         super(props);
+        //We pass the data through the state
         this.state={
             emotionMonth: '',
             iconE: ''
         };
             
     }
-    
+      /**
+     *  We are updating the state of the component through componentDidMount()
+     */
     
     componentDidMount(){
+         //We need the current user and its id
         const currentUser = AuthService.getCurrentUser();
         const id = currentUser.id;
-        console.log(id)
-        //Hacemos la llamada a axios para obtener la emocion predominante del mes
+         /**
+         * We get the data for the graphic through an axios get call
+         */
         axios.get(`https://emotionner.herokuapp.com/users/emotionOfTheMonth/${id}`)
-        .then(res=>{ //luego 
-            console.log(res);//console.log del resultado
+        .then(res=>{ //Then
             let array = res.data.ofTheMonth
-            console.log(Array.isArray(array))
             var emotion =''
+            /**
+             * We recive an array from the backend, if the array lenght is 0 
+             * we are reciving an empty array so the user has not entered an emotion 
+             * that month. Else we get the first element in the array.
+             */
             if(array.length === 0){
                 emotion =''
             } else{
-                emotion = array[0].emotion; //guardamos el array de objetos devuelto
+                emotion = array[0].emotion; 
                 
             }
-            
-            console.log(emotion)
             /**
-             * Recibimos un ID y lo asociamos a la emocion
+             * Since the data base returns the emotions with their id we need to cast the id number to
+             * the emotion
              */
             var icon = ''
             var emotionL = ''
@@ -59,15 +72,15 @@ class MothEmotion extends Component{
                 icon ="estresado far fa-tired"
             }
 
-            console.log(icon)
+          
            
-            //lo guardamos todo en el estado
+           //We store the info in our state
             this.setState({
                emotionMonth : emotionL,
                iconE : icon
             })
         
-            console.log(icon)
+            
         })
     }
     render(){
