@@ -1,15 +1,12 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-//const API_URL = "http://localhost:8080/";
 const API_URL ="https://emotionner.herokuapp.com/";
 const getUserTasks = (id) => {
   fetch(`https://emotionner.herokuapp.com/users/tasks/${id}`)
           .then(res => res.json())
           .then(t => {
             const tareas = t.tasks.tasks
-            console.log(Array.isArray(tareas));
-            console.log('Tareas:'+ tareas)
             return tareas
           })
           .catch(function(err) {

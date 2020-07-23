@@ -1,18 +1,25 @@
 /**
- * API Calls methods with AXIOS
+ * Import axios for API calls
  */
 import axios from "axios";
 /**
- * API URL
+ * our API URL
  */
 const API_URL ="https://emotionner.herokuapp.com/";
-//const API_URL = "http://localhost:8080/";
-/**
- * Registration method
- * @param {*} username 
- * @param {*} email 
- * @param {*} password 
- */
+
+
+ /**
+  * Registration method, we use this function to register a new user in out db
+ * we use a post method from axios to the back 
+  * @param {*} name as string
+  * @param {*} lastname  as string
+  * @param {*} email  as string
+  * @param {*} birthdate  as string
+  * @param {*} ocupation as sting
+  * @param {*} premium as boolean
+  * @param {*} password  as sting
+  * @returns response of the post method
+  */
 const register = (name,lastname,email,birthdate,ocupation,premium,password) => {
   return axios.post(API_URL + "users/signup", {
     name,
@@ -25,10 +32,10 @@ const register = (name,lastname,email,birthdate,ocupation,premium,password) => {
   });
 };
 /**
- * Login method
- * @param {*} username 
- * @param {*} password 
- * @returns userdata
+ * Login method, we do a post method to de db
+ * @param {*} email as string
+ * @param {*} password as string
+ * @returns response data from axios 
  */
 const login = (email, password) => {
   return axios
@@ -44,6 +51,13 @@ const login = (email, password) => {
       return response.data;
     });
 };
+/**
+ * Login method admin, we do a post method to de db, if the user returned by the db has the
+ * admin role we store it in the web storage
+ * @param {*} email as string
+ * @param {*} password as string
+ * @returns response data from axios 
+ */
 const loginA = (email, password) => {
   return axios
     .post(API_URL + "users/signin", {
@@ -59,21 +73,30 @@ const loginA = (email, password) => {
     });
 
 };
+/**
+ * Logout method, we remove the item user from the local storage
+ */
 const logoutA = () => {
   localStorage.removeItem("admin");
 };
 /**
- * Logout method
+ * Logout method, we remove the item user from the local storage
  */
 const logout = () => {
   localStorage.removeItem("user");
 };
 /**
- * Get current user method
+ * Get current user method, we return the item user that we stored in the browser
  */
 const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
+
+/**
+ * We validate if there is a current user logged
+ * @param {*} user as an instance of user object
+ */
+
 
 const isAuth= (user)=>{
     if(user){
@@ -82,9 +105,17 @@ const isAuth= (user)=>{
       return false
     }
 }
+/**
+ * Get current admin method, we return the item admin that we stored in the browser
+ */
 const getCurrentAdmin = () => {
   return JSON.parse(localStorage.getItem("admin"));
 };
+/**
+ * We validate if there is a current user logged
+ * @param {*} user as an instance of user object
+ */
+
 const isAdmin= (user)=>{
   if(user){
     return true

@@ -1,8 +1,7 @@
 /**
- * Header for authentications in the backend
+ * Header authentication function, we use this function to get the access token of a 
+ * user
  */
-
-
 export default function authHeader() {
     const user = JSON.parse(localStorage.getItem('user'));
   
